@@ -1,9 +1,9 @@
 drop table qmis_base.risk_check_actions;
 drop table qmis_base.risk_ctrl_actions;
+drop table qmis_base.risk_base;
 drop table qmis_base.risk_lv;
 drop table qmis_base.risk_probability_lv;
 drop table qmis_base.risk_severity_lv;
 drop table qmis_base.risk_impact_lv;
 drop table qmis_base.risk_types;
 drop table qmis_base.risk_categories;
-drop table qmis_base.risk_base;

@@ -7,16 +7,6 @@ CREATE TABLE
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
-
-CREATE TABLE
-    qmis_security.work_systems
-    (
-        id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-        name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-        PRIMARY KEY (id)
-    )
-    ENGINE=InnoDB DEFAULT CHARSET=utf8
-;
 	
 CREATE TABLE
     qmis_base.task_base

@@ -1,27 +1,4 @@
 CREATE TABLE
-    qmis_security.work_business_units
-    (
-        id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-        name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		parent_bu INT(10) UNSIGNED,
-		worksystem INT(10) UNSIGNED,
-		level INT(10) UNSIGNED,
-        PRIMARY KEY (id)
-    )
-    ENGINE=InnoDB DEFAULT CHARSET=utf8
-;
-
-ALTER TABLE
-    qmis_security.work_business_units ADD CONSTRAINT work_business_units_fk_1 FOREIGN KEY (parent_bu) REFERENCES
-    qmis_security.work_business_units (id)
-;
-
-ALTER TABLE
-    qmis_security.work_business_units ADD CONSTRAINT work_business_units_fk_2 FOREIGN KEY (worksystem) REFERENCES
-    qmis_security.work_systems (id)
-;
-
-CREATE TABLE
     qmis_base.task_baselines
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -125,20 +102,6 @@ ALTER TABLE
 ALTER TABLE
 	qmis_base.task_state_change_actions ADD CONSTRAINT task_state_change_actions_fk_2 FOREIGN KEY (task_phase_id) REFERENCES
 	qmis_base.task_phases (id)
-;
-
-CREATE TABLE
-	qmis_security.users
-	(
-		id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		password VARCHAR(2000) DEFAULT '' NOT NULL,
-		name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		nickname VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		cert VARCHAR(80) DEFAULT '' NOT NULL,
-		position INT(10) UNSIGNED NOT NULL,
-		PRIMARY KEY (id)
-	)
-    ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
 ALTER TABLE

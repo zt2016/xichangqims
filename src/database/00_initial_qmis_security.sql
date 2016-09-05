@@ -3,6 +3,11 @@ CREATE TABLE
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
         PRIMARY KEY (id)
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
@@ -13,9 +18,14 @@ CREATE TABLE
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		parent_bu INT(10) UNSIGNED,
-		worksystem INT(10) UNSIGNED,
-		level INT(10) UNSIGNED,
+        parent_bu INT(10) UNSIGNED,
+        worksystem INT(10) UNSIGNED,
+        level INT(10) UNSIGNED,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
         PRIMARY KEY (id)
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
@@ -33,32 +43,56 @@ ALTER TABLE
 
 CREATE TABLE
     qmis_security.privileges
-	(
-		id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		PRIMARY KEY (id)
-	)
-	ENGINE=InnoDB DEFAULT CHARSET=utf8
+    (
+        id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
+        resource_type VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
+        resource_path VARCHAR(2000),
+        p_status VARCHAR(80) DEFAULT 'ACT' NOT NULL,
+        parent_id INT(10) UNSIGNED NOT NULL,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
+        PRIMARY KEY (id)
+    )
+    ENGINE=InnoDB DEFAULT CHARSET=utf8
+;
+
+ALTER TABLE
+    qmis_security.privileges ADD CONSTRAINT privileges_fk_1 FOREIGN KEY (parent_id) REFERENCES
+    qmis_security.privileges (id)
 ;
 
 CREATE TABLE
     qmis_security.roles
-	(
-		id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		PRIMARY KEY (id)
-	)
-	ENGINE=InnoDB DEFAULT CHARSET=utf8
+    (
+        id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
+        PRIMARY KEY (id)
+    )
+    ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
 CREATE TABLE
     qmis_security.role_privilege_rel
-	(
-		role_id INT(10) UNSIGNED NOT NULL,
-		privilege_id INT(10) UNSIGNED NOT NULL,
-		PRIMARY KEY (role_id,privilege_id)
-	)
-	ENGINE=InnoDB DEFAULT CHARSET=utf8
+    (
+        role_id INT(10) UNSIGNED NOT NULL,
+        privilege_id INT(10) UNSIGNED NOT NULL,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
+        PRIMARY KEY (role_id,privilege_id)
+    )
+    ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
 ALTER TABLE
@@ -73,13 +107,18 @@ ALTER TABLE
 
 CREATE TABLE
     qmis_security.positions
-	(
-		id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		bu INT(10) UNSIGNED NOT NULL,
-		PRIMARY KEY (id)
-	)
-	ENGINE=InnoDB DEFAULT CHARSET=utf8
+    (
+        id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
+        bu INT(10) UNSIGNED NOT NULL,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
+        PRIMARY KEY (id)
+    )
+    ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
 ALTER TABLE
@@ -89,12 +128,17 @@ ALTER TABLE
 
 CREATE TABLE
     qmis_security.role_position_rel
-	(
-		role_id INT(10) UNSIGNED NOT NULL,
-		position_id INT(10) UNSIGNED NOT NULL,
-		PRIMARY KEY (role_id,position_id)
-	)
-	ENGINE=InnoDB DEFAULT CHARSET=utf8
+    (
+        role_id INT(10) UNSIGNED NOT NULL,
+        position_id INT(10) UNSIGNED NOT NULL,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
+        PRIMARY KEY (role_id,position_id)
+    )
+    ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
 ALTER TABLE
@@ -108,20 +152,25 @@ ALTER TABLE
 ;
 
 CREATE TABLE
-	qmis_security.users
-	(
-		id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		password VARCHAR(2000) DEFAULT '' NOT NULL,
-		name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		nickname VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
-		cert VARCHAR(80) DEFAULT '' NOT NULL,
-		position INT(10) UNSIGNED NOT NULL,
-		PRIMARY KEY (id)
-	)
+    qmis_security.users
+    (
+        id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        password VARCHAR(2000) DEFAULT '' NOT NULL,
+        name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
+        nickname VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
+        cert VARCHAR(80) DEFAULT '' NOT NULL,
+        position INT(10) UNSIGNED NOT NULL,
+        created_time DATETIME,
+        created_by VARCHAR(80),
+        updated_time DATETIME,
+        updated_by VARCHAR(80),
+        last_ip_address VARCHAR(128),
+        PRIMARY KEY (id)
+    )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
 ALTER TABLE
-	qmis_security.users ADD CONSTRAINT users_fk_1 FOREIGN KEY (position) REFERENCES
-	qmis_security.positions (id)
+    qmis_security.users ADD CONSTRAINT users_fk_1 FOREIGN KEY (position) REFERENCES
+    qmis_security.positions (id)
 ;

@@ -33,20 +33,20 @@ CREATE TABLE
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(2000) DEFAULT 'UNDEFINED' NOT NULL,
-        
+
         appearance TEXT,
         investigation TEXT,
         mechanism_analysis TEXT,
         actions TEXT,
-        
+
         conclusion TEXT,
-        
+
         created_time DATETIME,
         created_by VARCHAR(80),
         updated_time DATETIME,
         updated_by VARCHAR(80),
         last_ip_address VARCHAR(128),
-        
+
         PRIMARY KEY (id)
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
@@ -58,21 +58,21 @@ CREATE TABLE
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(2000) DEFAULT 'UNDEFINED' NOT NULL,
         appearance TEXT,
-        
+
         investigation TEXT,
         mechanism_analysis TEXT,
         actions TEXT,
         inference TEXT,
-        
+
         recap TEXT,
         conclusion TEXT,
-        
+
         created_time DATETIME,
         created_by VARCHAR(80),
         updated_time DATETIME,
         updated_by VARCHAR(80),
         last_ip_address VARCHAR(128),
-        
+
         PRIMARY KEY (id)
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
@@ -84,21 +84,21 @@ CREATE TABLE
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(2000) DEFAULT 'UNDEFINED' NOT NULL,
         process_overview TEXT,
-        
+
         responsibilities TEXT,
         actions TEXT,
         treatments TEXT,
         improvements TEXT,
-        
+
         recap TEXT,
         conclusion TEXT,
-        
+
         created_time DATETIME,
         created_by VARCHAR(80),
         updated_time DATETIME,
         updated_by VARCHAR(80),
         last_ip_address VARCHAR(128),
-        
+
         PRIMARY KEY (id)
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
@@ -108,32 +108,32 @@ CREATE TABLE
     qmis_base.incident_base
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-        
+
         task_id INT(10) UNSIGNED NOT NULL,
         bu INT(10) UNSIGNED NOT NULL,
-        
+
         name VARCHAR(2000) DEFAULT 'UNDEFINED' NOT NULL,
         type VARCHAR(2000) DEFAULT 'UNDEFINED' NOT NULL,
-        
+
         type_id INT(10) UNSIGNED NOT NULL,
         lv_id INT(10) UNSIGNED NOT NULL,
-        
+
         open_time DATETIME,
         overview TEXT,
-        
+
         close_time DATETIME,
         close_state VARCHAR(2000) DEFAULT 'UNDEFINED' NOT NULL,
-        
+
         diagnosis_report_id INT(10) UNSIGNED DEFAULT '0' NOT NULL,
         close_t_report_id INT(10) UNSIGNED DEFAULT '0' NOT NULL,
         close_m_report_id INT(10) UNSIGNED DEFAULT '0' NOT NULL,
-        
+
         created_time DATETIME,
         created_by VARCHAR(80),
         updated_time DATETIME,
         updated_by VARCHAR(80),
         last_ip_address VARCHAR(128),
-        
+
         PRIMARY KEY (id)
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
@@ -141,7 +141,7 @@ CREATE TABLE
 
 ALTER TABLE
     qmis_base.incident_base ADD CONSTRAINT incident_base_fk_1 FOREIGN KEY (bu) REFERENCES
-    qmis_security.work_business_units (id)
+    qmis_base.work_business_units (id)
 ;
 
 ALTER TABLE

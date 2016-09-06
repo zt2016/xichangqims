@@ -1,5 +1,5 @@
 CREATE TABLE
-    qmis_security.work_systems
+    qmis_base.work_systems
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE
 ;
 
 CREATE TABLE
-    qmis_security.work_business_units
+    qmis_base.work_business_units
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
@@ -32,17 +32,17 @@ CREATE TABLE
 ;
 
 ALTER TABLE
-    qmis_security.work_business_units ADD CONSTRAINT work_business_units_fk_1 FOREIGN KEY (parent_bu) REFERENCES
-    qmis_security.work_business_units (id)
+    qmis_base.work_business_units ADD CONSTRAINT work_business_units_fk_1 FOREIGN KEY (parent_bu) REFERENCES
+    qmis_base.work_business_units (id)
 ;
 
 ALTER TABLE
-    qmis_security.work_business_units ADD CONSTRAINT work_business_units_fk_2 FOREIGN KEY (worksystem) REFERENCES
-    qmis_security.work_systems (id)
+    qmis_base.work_business_units ADD CONSTRAINT work_business_units_fk_2 FOREIGN KEY (worksystem) REFERENCES
+    qmis_base.work_systems (id)
 ;
 
 CREATE TABLE
-    qmis_security.privileges
+    qmis_base.privileges
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
@@ -61,12 +61,12 @@ CREATE TABLE
 ;
 
 ALTER TABLE
-    qmis_security.privileges ADD CONSTRAINT privileges_fk_1 FOREIGN KEY (parent_id) REFERENCES
-    qmis_security.privileges (id)
+    qmis_base.privileges ADD CONSTRAINT privileges_fk_1 FOREIGN KEY (parent_id) REFERENCES
+    qmis_base.privileges (id)
 ;
 
 CREATE TABLE
-    qmis_security.roles
+    qmis_base.roles
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE
 ;
 
 CREATE TABLE
-    qmis_security.role_privilege_rel
+    qmis_base.role_privilege_rel
     (
         role_id INT(10) UNSIGNED NOT NULL,
         privilege_id INT(10) UNSIGNED NOT NULL,
@@ -96,17 +96,17 @@ CREATE TABLE
 ;
 
 ALTER TABLE
-    qmis_security.role_privilege_rel ADD CONSTRAINT role_privilege_rel_fk_1 FOREIGN KEY (role_id) REFERENCES
-    qmis_security.roles (id)
+    qmis_base.role_privilege_rel ADD CONSTRAINT role_privilege_rel_fk_1 FOREIGN KEY (role_id) REFERENCES
+    qmis_base.roles (id)
 ;
 
 ALTER TABLE
-    qmis_security.role_privilege_rel ADD CONSTRAINT role_privilege_rel_fk_2 FOREIGN KEY (privilege_id) REFERENCES
-    qmis_security.privileges (id)
+    qmis_base.role_privilege_rel ADD CONSTRAINT role_privilege_rel_fk_2 FOREIGN KEY (privilege_id) REFERENCES
+    qmis_base.privileges (id)
 ;
 
 CREATE TABLE
-    qmis_security.positions
+    qmis_base.positions
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(80) DEFAULT 'UNDEFINED' NOT NULL,
@@ -122,12 +122,12 @@ CREATE TABLE
 ;
 
 ALTER TABLE
-    qmis_security.positions ADD CONSTRAINT positions_fk_1 FOREIGN KEY (bu) REFERENCES
-    qmis_security.work_business_units (id)
+    qmis_base.positions ADD CONSTRAINT positions_fk_1 FOREIGN KEY (bu) REFERENCES
+    qmis_base.work_business_units (id)
 ;
 
 CREATE TABLE
-    qmis_security.role_position_rel
+    qmis_base.role_position_rel
     (
         role_id INT(10) UNSIGNED NOT NULL,
         position_id INT(10) UNSIGNED NOT NULL,
@@ -142,17 +142,17 @@ CREATE TABLE
 ;
 
 ALTER TABLE
-    qmis_security.role_position_rel ADD CONSTRAINT role_position_rel_fk_1 FOREIGN KEY (role_id) REFERENCES
-    qmis_security.roles (id)
+    qmis_base.role_position_rel ADD CONSTRAINT role_position_rel_fk_1 FOREIGN KEY (role_id) REFERENCES
+    qmis_base.roles (id)
 ;
 
 ALTER TABLE
-    qmis_security.role_position_rel ADD CONSTRAINT role_position_rel_fk_2 FOREIGN KEY (position_id) REFERENCES
-    qmis_security.positions (id)
+    qmis_base.role_position_rel ADD CONSTRAINT role_position_rel_fk_2 FOREIGN KEY (position_id) REFERENCES
+    qmis_base.positions (id)
 ;
 
 CREATE TABLE
-    qmis_security.users
+    qmis_base.users
     (
         id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         password VARCHAR(2000) DEFAULT '' NOT NULL,
@@ -171,6 +171,6 @@ CREATE TABLE
 ;
 
 ALTER TABLE
-    qmis_security.users ADD CONSTRAINT users_fk_1 FOREIGN KEY (position) REFERENCES
-    qmis_security.positions (id)
+    qmis_base.users ADD CONSTRAINT users_fk_1 FOREIGN KEY (position) REFERENCES
+    qmis_base.positions (id)
 ;

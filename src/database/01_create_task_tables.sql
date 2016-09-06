@@ -12,7 +12,7 @@ CREATE TABLE
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
-	
+
 CREATE TABLE
     qmis_base.task_base
     (
@@ -55,7 +55,7 @@ ALTER TABLE
 
 ALTER TABLE
 	qmis_base.task_phases ADD CONSTRAINT task_phase_fk_2 FOREIGN KEY (worksystem) REFERENCES
-	qmis_security.work_systems (id)
+	qmis_base.work_systems (id)
 ;
 
 CREATE TABLE
@@ -89,5 +89,5 @@ ALTER TABLE
 
 ALTER TABLE
     qmis_base.task_phase_controls ADD CONSTRAINT task_phase_ctrl_fk_3 FOREIGN KEY (worksystem) REFERENCES
-    qmis_security.work_systems (id)
+    qmis_base.work_systems (id)
 ;

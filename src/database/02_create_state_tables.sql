@@ -28,7 +28,7 @@ ALTER TABLE
 
 ALTER TABLE
 	qmis_base.task_baselines ADD CONSTRAINT task_baselines_fk_3 FOREIGN KEY (bu) REFERENCES
-	qmis_security.work_business_units (id)
+	qmis_base.work_business_units (id)
 ;
 
 CREATE TABLE
@@ -131,5 +131,5 @@ ALTER TABLE
 
 ALTER TABLE
     qmis_base.task_state_change_actions ADD CONSTRAINT task_state_change_actions_fk_3 FOREIGN KEY (user_id) REFERENCES
-    qmis_security.users (id)
+    qmis_base.users (id)
 ;

@@ -1,11 +1,42 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                             
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>org.oc2</groupId>
   <artifactId>qmis</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>qmis</name>
   <description>qmis</description>
+  
+  <repositories>
+    <repository>
+      <id>PrimeFaces</id>
+	  <name>PrimeFaces Maven Repository</name>
+	  <url>http://repository.primefaces.org</url>
+	  <releases>
+	  	<enabled>true</enabled>
+	  </releases>
+	  <snapshots>
+	  	<enabled>false</enabled>
+	  </snapshots>
+    </repository>
+    <repository>
+      <id>MavenCentral</id>
+      <name>Maven Central</name>
+      <url>http://repo1.maven.org/maven2/</url>
+	  <releases>
+	  	<enabled>true</enabled>
+	  </releases>
+	  <snapshots>
+	  	<enabled>false</enabled>
+	  </snapshots>
+    </repository>
+  </repositories>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -27,4 +58,140 @@
       </plugin>
     </plugins>
   </build>
+  
+  <properties>
+    <spring.version>4.3.2.RELEASE</spring.version>
+    <spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
+  </properties>
+  
+  <dependencies>
+  
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-core</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-beans</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-context</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-aop</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-expression</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-web</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-tx</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework</groupId> -->
+<!--       <artifactId>spring-jdbc</artifactId> -->
+<!--       <version>${spring.version}</version> -->
+<!--     </dependency> -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-oxm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>${spring-data-jpa.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.sun.faces</groupId>
+      <artifactId>jsf-impl</artifactId>
+      <version>2.2.13</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.faces</groupId>
+      <artifactId>jsf-api</artifactId>
+      <version>2.2.13</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <version>2.3.1</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    
+<!--     <dependency> -->
+<!--       <groupId>javax.servlet.jsp.jstl</groupId> -->
+<!--       <artifactId>jstl-api</artifactId> -->
+<!--       <version>1.2</version> -->
+<!--     </dependency> -->
+    
+    <dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>6.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.primefaces.extensions</groupId>
+      <artifactId>all-themes</artifactId>
+      <version>1.0.8</version>
+      <type>pom</type>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.el</groupId>
+      <artifactId>javax.el-api</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+    
+  </dependencies>
+  
 </project>

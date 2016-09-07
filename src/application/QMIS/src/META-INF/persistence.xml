@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="QMIS" transaction-type="RESOURCE_LOCAL">
-		<class>model.jpa.entities.qmis.base.IncidentBase</class>
-		<class>model.jpa.entities.qmis.base.IncidentCloseMReport</class>
-		<class>model.jpa.entities.qmis.base.IncidentCloseTReport</class>
-		<class>model.jpa.entities.qmis.base.IncidentDiagnosisReport</class>
-		<class>model.jpa.entities.qmis.base.IncidentLv</class>
-		<class>model.jpa.entities.qmis.base.IncidentType</class>
-		<class>model.jpa.entities.qmis.base.Position</class>
-		<class>model.jpa.entities.qmis.base.Privilege</class>
-		<class>model.jpa.entities.qmis.base.RiskBase</class>
-		<class>model.jpa.entities.qmis.base.RiskCategory</class>
-		<class>model.jpa.entities.qmis.base.RiskCheckAction</class>
-		<class>model.jpa.entities.qmis.base.RiskCtrlAction</class>
-		<class>model.jpa.entities.qmis.base.RiskImpactLv</class>
-		<class>model.jpa.entities.qmis.base.RiskLv</class>
-		<class>model.jpa.entities.qmis.base.RiskProbabilityLv</class>
-		<class>model.jpa.entities.qmis.base.RiskSeverityLv</class>
-		<class>model.jpa.entities.qmis.base.RiskType</class>
-		<class>model.jpa.entities.qmis.base.RolePositionRel</class>
-		<class>model.jpa.entities.qmis.base.RolePositionRelPK</class>
-		<class>model.jpa.entities.qmis.base.RolePrivilegeRel</class>
-		<class>model.jpa.entities.qmis.base.RolePrivilegeRelPK</class>
-		<class>model.jpa.entities.qmis.base.Role</class>
-		<class>model.jpa.entities.qmis.base.TaskBase</class>
-		<class>model.jpa.entities.qmis.base.TaskBaseline</class>
-		<class>model.jpa.entities.qmis.base.TaskCategory</class>
-		<class>model.jpa.entities.qmis.base.TaskPhaseControl</class>
-		<class>model.jpa.entities.qmis.base.TaskPhas</class>
-		<class>model.jpa.entities.qmis.base.TaskStateChangeAction</class>
-		<class>model.jpa.entities.qmis.base.TaskStateChangeCategory</class>
-		<class>model.jpa.entities.qmis.base.TaskStateChangeDetail</class>
-		<class>model.jpa.entities.qmis.base.TaskStateChangeImpactLv</class>
-		<class>model.jpa.entities.qmis.base.User</class>
-		<class>model.jpa.entities.qmis.base.WorkBusinessUnit</class>
-		<class>model.jpa.entities.qmis.base.WorkSystem</class>
+		<class>model.entities.IncidentBase</class>
+		<class>model.entities.IncidentCloseMReport</class>
+		<class>model.entities.IncidentCloseTReport</class>
+		<class>model.entities.IncidentDiagnosisReport</class>
+		<class>model.entities.IncidentLv</class>
+		<class>model.entities.IncidentType</class>
+		<class>model.entities.Position</class>
+		<class>model.entities.Privilege</class>
+		<class>model.entities.RiskBase</class>
+		<class>model.entities.RiskCategory</class>
+		<class>model.entities.RiskCheckAction</class>
+		<class>model.entities.RiskCtrlAction</class>
+		<class>model.entities.RiskImpactLv</class>
+		<class>model.entities.RiskLv</class>
+		<class>model.entities.RiskProbabilityLv</class>
+		<class>model.entities.RiskSeverityLv</class>
+		<class>model.entities.RiskType</class>
+		<class>model.entities.RolePositionRel</class>
+		<class>model.entities.RolePositionRelPK</class>
+		<class>model.entities.RolePrivilegeRel</class>
+		<class>model.entities.RolePrivilegeRelPK</class>
+		<class>model.entities.Role</class>
+		<class>model.entities.TaskBase</class>
+		<class>model.entities.TaskBaseline</class>
+		<class>model.entities.TaskCategory</class>
+		<class>model.entities.TaskPhaseControl</class>
+		<class>model.entities.TaskPhas</class>
+		<class>model.entities.TaskStateChangeAction</class>
+		<class>model.entities.TaskStateChangeCategory</class>
+		<class>model.entities.TaskStateChangeDetail</class>
+		<class>model.entities.TaskStateChangeImpactLv</class>
+		<class>model.entities.User</class>
+		<class>model.entities.WorkBusinessUnit</class>
+		<class>model.entities.WorkSystem</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/qmis_base"/>
 			<property name="javax.persistence.jdbc.user" value="qmisroot"/>

@@ -1,4 +1,4 @@
-package model.jpa.entities.qmis.base;
+package model.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;

@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="QMIS" transaction-type="RESOURCE_LOCAL">
-		<class>org.oc2.qmis.model.entities.IncidentBase</class>
-		<class>org.oc2.qmis.model.entities.IncidentCloseMReport</class>
-		<class>org.oc2.qmis.model.entities.IncidentCloseTReport</class>
-		<class>org.oc2.qmis.model.entities.IncidentDiagnosisReport</class>
-		<class>org.oc2.qmis.model.entities.IncidentLv</class>
-		<class>org.oc2.qmis.model.entities.IncidentType</class>
-		<class>org.oc2.qmis.model.entities.Position</class>
-		<class>org.oc2.qmis.model.entities.Privilege</class>
-		<class>org.oc2.qmis.model.entities.RiskBase</class>
-		<class>org.oc2.qmis.model.entities.RiskCategory</class>
-		<class>org.oc2.qmis.model.entities.RiskCheckAction</class>
-		<class>org.oc2.qmis.model.entities.RiskCtrlAction</class>
-		<class>org.oc2.qmis.model.entities.RiskImpactLv</class>
-		<class>org.oc2.qmis.model.entities.RiskLv</class>
-		<class>org.oc2.qmis.model.entities.RiskProbabilityLv</class>
-		<class>org.oc2.qmis.model.entities.RiskSeverityLv</class>
-		<class>org.oc2.qmis.model.entities.RiskType</class>
-		<class>org.oc2.qmis.model.entities.Role</class>
-		<class>org.oc2.qmis.model.entities.RolePositionRel</class>
-		<class>org.oc2.qmis.model.entities.RolePositionRelPK</class>
-		<class>org.oc2.qmis.model.entities.RolePrivilegeRel</class>
-		<class>org.oc2.qmis.model.entities.RolePrivilegeRelPK</class>
-		<class>org.oc2.qmis.model.entities.TaskBase</class>
-		<class>org.oc2.qmis.model.entities.TaskBaseline</class>
-		<class>org.oc2.qmis.model.entities.TaskCategory</class>
-		<class>org.oc2.qmis.model.entities.TaskPhas</class>
-		<class>org.oc2.qmis.model.entities.TaskPhaseControl</class>
-		<class>org.oc2.qmis.model.entities.TaskStateChangeAction</class>
-		<class>org.oc2.qmis.model.entities.TaskStateChangeCategory</class>
-		<class>org.oc2.qmis.model.entities.TaskStateChangeDetail</class>
-		<class>org.oc2.qmis.model.entities.TaskStateChangeImpactLv</class>
-		<class>org.oc2.qmis.model.entities.User</class>
-		<class>org.oc2.qmis.model.entities.WorkBusinessUnit</class>
-		<class>org.oc2.qmis.model.entities.WorkSystem</class>
+		<class>org.oc2.qmis.model.entity.IncidentBase</class>
+		<class>org.oc2.qmis.model.entity.IncidentCloseMReport</class>
+		<class>org.oc2.qmis.model.entity.IncidentCloseTReport</class>
+		<class>org.oc2.qmis.model.entity.IncidentDiagnosisReport</class>
+		<class>org.oc2.qmis.model.entity.IncidentLv</class>
+		<class>org.oc2.qmis.model.entity.IncidentType</class>
+		<class>org.oc2.qmis.model.entity.Position</class>
+		<class>org.oc2.qmis.model.entity.Privilege</class>
+		<class>org.oc2.qmis.model.entity.RiskBase</class>
+		<class>org.oc2.qmis.model.entity.RiskCategory</class>
+		<class>org.oc2.qmis.model.entity.RiskCheckAction</class>
+		<class>org.oc2.qmis.model.entity.RiskCtrlAction</class>
+		<class>org.oc2.qmis.model.entity.RiskImpactLv</class>
+		<class>org.oc2.qmis.model.entity.RiskLv</class>
+		<class>org.oc2.qmis.model.entity.RiskProbabilityLv</class>
+		<class>org.oc2.qmis.model.entity.RiskSeverityLv</class>
+		<class>org.oc2.qmis.model.entity.RiskType</class>
+		<class>org.oc2.qmis.model.entity.Role</class>
+		<class>org.oc2.qmis.model.entity.RolePositionRel</class>
+		<class>org.oc2.qmis.model.entity.RolePositionRelPK</class>
+		<class>org.oc2.qmis.model.entity.RolePrivilegeRel</class>
+		<class>org.oc2.qmis.model.entity.RolePrivilegeRelPK</class>
+		<class>org.oc2.qmis.model.entity.TaskBase</class>
+		<class>org.oc2.qmis.model.entity.TaskBaseline</class>
+		<class>org.oc2.qmis.model.entity.TaskCategory</class>
+		<class>org.oc2.qmis.model.entity.TaskPhas</class>
+		<class>org.oc2.qmis.model.entity.TaskPhaseControl</class>
+		<class>org.oc2.qmis.model.entity.TaskStateChangeAction</class>
+		<class>org.oc2.qmis.model.entity.TaskStateChangeCategory</class>
+		<class>org.oc2.qmis.model.entity.TaskStateChangeDetail</class>
+		<class>org.oc2.qmis.model.entity.TaskStateChangeImpactLv</class>
+		<class>org.oc2.qmis.model.entity.User</class>
+		<class>org.oc2.qmis.model.entity.WorkBusinessUnit</class>
+		<class>org.oc2.qmis.model.entity.WorkSystem</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/qmis_base"/>
 			<property name="javax.persistence.jdbc.user" value="qmisroot"/>

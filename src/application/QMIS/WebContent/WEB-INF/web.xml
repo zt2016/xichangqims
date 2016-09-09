@@ -14,10 +14,13 @@
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>Faces Servlet</servlet-name> -->
+<!--     <url-pattern>*.xhtml</url-pattern> -->
+<!--   </servlet-mapping> -->
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
-    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>

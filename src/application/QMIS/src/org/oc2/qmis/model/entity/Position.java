@@ -18,7 +18,7 @@ public class Position implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -41,7 +41,7 @@ public class Position implements Serializable {
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="bu")
+	@JoinColumn(name="bu",insertable=false,updatable=false)
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to RolePositionRel
@@ -55,11 +55,11 @@ public class Position implements Serializable {
 	public Position() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

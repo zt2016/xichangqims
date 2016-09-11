@@ -18,13 +18,13 @@ public class IncidentCloseTReport implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
-	private Object actions;
+	private String actions;
 
-	private Object appearance;
+	private String appearance;
 
-	private Object conclusion;
+	private String conclusion;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -33,19 +33,19 @@ public class IncidentCloseTReport implements Serializable {
 	@Column(name="created_time")
 	private Date createdTime;
 
-	private Object inference;
+	private String inference;
 
-	private Object investigation;
+	private String investigation;
 
 	@Column(name="last_ip_address")
 	private String lastIpAddress;
 
 	@Column(name="mechanism_analysis")
-	private Object mechanismAnalysis;
+	private String mechanismAnalysis;
 
 	private String name;
 
-	private Object recap;
+	private String recap;
 
 	@Column(name="updated_by")
 	private String updatedBy;
@@ -61,35 +61,35 @@ public class IncidentCloseTReport implements Serializable {
 	public IncidentCloseTReport() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Object getActions() {
+	public String getActions() {
 		return this.actions;
 	}
 
-	public void setActions(Object actions) {
+	public void setActions(String actions) {
 		this.actions = actions;
 	}
 
-	public Object getAppearance() {
+	public String getAppearance() {
 		return this.appearance;
 	}
 
-	public void setAppearance(Object appearance) {
+	public void setAppearance(String appearance) {
 		this.appearance = appearance;
 	}
 
-	public Object getConclusion() {
+	public String getConclusion() {
 		return this.conclusion;
 	}
 
-	public void setConclusion(Object conclusion) {
+	public void setConclusion(String conclusion) {
 		this.conclusion = conclusion;
 	}
 
@@ -109,19 +109,19 @@ public class IncidentCloseTReport implements Serializable {
 		this.createdTime = createdTime;
 	}
 
-	public Object getInference() {
+	public String getInference() {
 		return this.inference;
 	}
 
-	public void setInference(Object inference) {
+	public void setInference(String inference) {
 		this.inference = inference;
 	}
 
-	public Object getInvestigation() {
+	public String getInvestigation() {
 		return this.investigation;
 	}
 
-	public void setInvestigation(Object investigation) {
+	public void setInvestigation(String investigation) {
 		this.investigation = investigation;
 	}
 
@@ -133,11 +133,11 @@ public class IncidentCloseTReport implements Serializable {
 		this.lastIpAddress = lastIpAddress;
 	}
 
-	public Object getMechanismAnalysis() {
+	public String getMechanismAnalysis() {
 		return this.mechanismAnalysis;
 	}
 
-	public void setMechanismAnalysis(Object mechanismAnalysis) {
+	public void setMechanismAnalysis(String mechanismAnalysis) {
 		this.mechanismAnalysis = mechanismAnalysis;
 	}
 
@@ -149,11 +149,11 @@ public class IncidentCloseTReport implements Serializable {
 		this.name = name;
 	}
 
-	public Object getRecap() {
+	public String getRecap() {
 		return this.recap;
 	}
 
-	public void setRecap(Object recap) {
+	public void setRecap(String recap) {
 		this.recap = recap;
 	}
 

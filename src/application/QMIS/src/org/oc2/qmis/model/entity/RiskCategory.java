@@ -18,7 +18,7 @@ public class RiskCategory implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	private String code;
 
@@ -39,7 +39,7 @@ public class RiskCategory implements Serializable {
 
 	private String name;
 
-	private int parent;
+	private Integer parent;
 
 	@Column(name="updated_by")
 	private String updatedBy;
@@ -55,11 +55,11 @@ public class RiskCategory implements Serializable {
 	public RiskCategory() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -119,11 +119,11 @@ public class RiskCategory implements Serializable {
 		this.name = name;
 	}
 
-	public int getParent() {
+	public Integer getParent() {
 		return this.parent;
 	}
 
-	public void setParent(int parent) {
+	public void setParent(Integer parent) {
 		this.parent = parent;
 	}
 

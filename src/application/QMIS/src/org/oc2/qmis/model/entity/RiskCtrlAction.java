@@ -17,7 +17,7 @@ public class RiskCtrlAction implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	private String action;
 
@@ -49,42 +49,42 @@ public class RiskCtrlAction implements Serializable {
 
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
-	@JoinColumn(name="task_phase_id")
+	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
 	private TaskPhas taskPhas1;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_id",insertable=false,updatable=false)
 	private User user1;
 
 	//bi-directional many-to-one association to RiskBase
 	@ManyToOne
-	@JoinColumn(name="risk_base_id")
+	@JoinColumn(name="risk_base_id",insertable=false,updatable=false)
 	private RiskBase riskBase1;
 
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
-	@JoinColumn(name="task_phase_id")
+	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
 	private TaskPhas taskPhas2;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_id",insertable=false,updatable=false)
 	private User user2;
 
 	//bi-directional many-to-one association to RiskBase
 	@ManyToOne
-	@JoinColumn(name="risk_base_id")
+	@JoinColumn(name="risk_base_id",insertable=false,updatable=false)
 	private RiskBase riskBase2;
 
 	public RiskCtrlAction() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

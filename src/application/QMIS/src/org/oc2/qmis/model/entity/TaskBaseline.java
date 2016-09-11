@@ -18,7 +18,7 @@ public class TaskBaseline implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -41,17 +41,17 @@ public class TaskBaseline implements Serializable {
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="current_task")
+	@JoinColumn(name="current_task",insertable=false,updatable=false)
 	private TaskBase taskBase1;
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="baseline_task")
+	@JoinColumn(name="baseline_task",insertable=false,updatable=false)
 	private TaskBase taskBase2;
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="bu")
+	@JoinColumn(name="bu",insertable=false,updatable=false)
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to TaskStateChangeDetail
@@ -61,11 +61,11 @@ public class TaskBaseline implements Serializable {
 	public TaskBaseline() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

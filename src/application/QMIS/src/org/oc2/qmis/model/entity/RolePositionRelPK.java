@@ -13,23 +13,23 @@ public class RolePositionRelPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="role_id", insertable=false, updatable=false)
-	private int roleId;
+	private Integer roleId;
 
 	@Column(name="position_id", insertable=false, updatable=false)
-	private int positionId;
+	private Integer positionId;
 
 	public RolePositionRelPK() {
 	}
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return this.roleId;
 	}
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
-	public int getPositionId() {
+	public Integer getPositionId() {
 		return this.positionId;
 	}
-	public void setPositionId(int positionId) {
+	public void setPositionId(Integer positionId) {
 		this.positionId = positionId;
 	}
 

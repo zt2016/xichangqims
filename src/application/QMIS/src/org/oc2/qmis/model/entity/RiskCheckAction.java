@@ -17,7 +17,7 @@ public class RiskCheckAction implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	private String action;
 
@@ -41,10 +41,10 @@ public class RiskCheckAction implements Serializable {
 	private String result;
 
 	@Column(name="risk_base_id")
-	private int riskBaseId;
+	private Integer riskBaseId;
 
 	@Column(name="task_phase_id")
-	private int taskPhaseId;
+	private Integer taskPhaseId;
 
 	@Column(name="updated_by")
 	private String updatedBy;
@@ -54,16 +54,16 @@ public class RiskCheckAction implements Serializable {
 	private Date updatedTime;
 
 	@Column(name="user_id")
-	private int userId;
+	private Integer userId;
 
 	public RiskCheckAction() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -123,19 +123,19 @@ public class RiskCheckAction implements Serializable {
 		this.result = result;
 	}
 
-	public int getRiskBaseId() {
+	public Integer getRiskBaseId() {
 		return this.riskBaseId;
 	}
 
-	public void setRiskBaseId(int riskBaseId) {
+	public void setRiskBaseId(Integer riskBaseId) {
 		this.riskBaseId = riskBaseId;
 	}
 
-	public int getTaskPhaseId() {
+	public Integer getTaskPhaseId() {
 		return this.taskPhaseId;
 	}
 
-	public void setTaskPhaseId(int taskPhaseId) {
+	public void setTaskPhaseId(Integer taskPhaseId) {
 		this.taskPhaseId = taskPhaseId;
 	}
 
@@ -155,11 +155,11 @@ public class RiskCheckAction implements Serializable {
 		this.updatedTime = updatedTime;
 	}
 
-	public int getUserId() {
+	public Integer getUserId() {
 		return this.userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 

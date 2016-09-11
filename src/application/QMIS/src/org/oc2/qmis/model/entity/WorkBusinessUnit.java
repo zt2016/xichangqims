@@ -18,7 +18,7 @@ public class WorkBusinessUnit implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -30,7 +30,7 @@ public class WorkBusinessUnit implements Serializable {
 	@Column(name="last_ip_address")
 	private String lastIpAddress;
 
-	private int level;
+	private Integer level;
 
 	private String name;
 
@@ -59,7 +59,7 @@ public class WorkBusinessUnit implements Serializable {
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="parent_bu")
+	@JoinColumn(name="parent_bu",insertable=false,updatable=false)
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to WorkBusinessUnit
@@ -68,17 +68,17 @@ public class WorkBusinessUnit implements Serializable {
 
 	//bi-directional many-to-one association to WorkSystem
 	@ManyToOne
-	@JoinColumn(name="worksystem")
+	@JoinColumn(name="worksystem",insertable=false,updatable=false)
 	private WorkSystem workSystem;
 
 	public WorkBusinessUnit() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -106,11 +106,11 @@ public class WorkBusinessUnit implements Serializable {
 		this.lastIpAddress = lastIpAddress;
 	}
 
-	public int getLevel() {
+	public Integer getLevel() {
 		return this.level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 

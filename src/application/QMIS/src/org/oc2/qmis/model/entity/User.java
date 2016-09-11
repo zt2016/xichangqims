@@ -18,7 +18,7 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	private String cert;
 
@@ -59,17 +59,17 @@ public class User implements Serializable {
 
 	//bi-directional many-to-one association to Position
 	@ManyToOne
-	@JoinColumn(name="position")
+	@JoinColumn(name="position",insertable=false,updatable=false)
 	private Position positionBean;
 
 	public User() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

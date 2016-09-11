@@ -18,11 +18,11 @@ public class IncidentCloseMReport implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
-	private Object actions;
+	private String actions;
 
-	private Object conclusion;
+	private String conclusion;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -31,7 +31,7 @@ public class IncidentCloseMReport implements Serializable {
 	@Column(name="created_time")
 	private Date createdTime;
 
-	private Object improvements;
+	private String improvements;
 
 	@Column(name="last_ip_address")
 	private String lastIpAddress;
@@ -39,13 +39,13 @@ public class IncidentCloseMReport implements Serializable {
 	private String name;
 
 	@Column(name="process_overview")
-	private Object processOverview;
+	private String processOverview;
 
-	private Object recap;
+	private String recap;
 
-	private Object responsibilities;
+	private String responsibilities;
 
-	private Object treatments;
+	private String treatments;
 
 	@Column(name="updated_by")
 	private String updatedBy;
@@ -61,27 +61,27 @@ public class IncidentCloseMReport implements Serializable {
 	public IncidentCloseMReport() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Object getActions() {
+	public String getActions() {
 		return this.actions;
 	}
 
-	public void setActions(Object actions) {
+	public void setActions(String actions) {
 		this.actions = actions;
 	}
 
-	public Object getConclusion() {
+	public String getConclusion() {
 		return this.conclusion;
 	}
 
-	public void setConclusion(Object conclusion) {
+	public void setConclusion(String conclusion) {
 		this.conclusion = conclusion;
 	}
 
@@ -101,11 +101,11 @@ public class IncidentCloseMReport implements Serializable {
 		this.createdTime = createdTime;
 	}
 
-	public Object getImprovements() {
+	public String getImprovements() {
 		return this.improvements;
 	}
 
-	public void setImprovements(Object improvements) {
+	public void setImprovements(String improvements) {
 		this.improvements = improvements;
 	}
 
@@ -125,35 +125,35 @@ public class IncidentCloseMReport implements Serializable {
 		this.name = name;
 	}
 
-	public Object getProcessOverview() {
+	public String getProcessOverview() {
 		return this.processOverview;
 	}
 
-	public void setProcessOverview(Object processOverview) {
+	public void setProcessOverview(String processOverview) {
 		this.processOverview = processOverview;
 	}
 
-	public Object getRecap() {
+	public String getRecap() {
 		return this.recap;
 	}
 
-	public void setRecap(Object recap) {
+	public void setRecap(String recap) {
 		this.recap = recap;
 	}
 
-	public Object getResponsibilities() {
+	public String getResponsibilities() {
 		return this.responsibilities;
 	}
 
-	public void setResponsibilities(Object responsibilities) {
+	public void setResponsibilities(String responsibilities) {
 		this.responsibilities = responsibilities;
 	}
 
-	public Object getTreatments() {
+	public String getTreatments() {
 		return this.treatments;
 	}
 
-	public void setTreatments(Object treatments) {
+	public void setTreatments(String treatments) {
 		this.treatments = treatments;
 	}
 

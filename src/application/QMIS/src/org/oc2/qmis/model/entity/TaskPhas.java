@@ -18,7 +18,7 @@ public class TaskPhas implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -53,7 +53,7 @@ public class TaskPhas implements Serializable {
 
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
-	@JoinColumn(name="previous")
+	@JoinColumn(name="previous",insertable=false,updatable=false)
 	private TaskPhas taskPhas;
 
 	//bi-directional many-to-one association to TaskPhas
@@ -62,7 +62,7 @@ public class TaskPhas implements Serializable {
 
 	//bi-directional many-to-one association to WorkSystem
 	@ManyToOne
-	@JoinColumn(name="worksystem")
+	@JoinColumn(name="worksystem",insertable=false,updatable=false)
 	private WorkSystem workSystem;
 
 	//bi-directional many-to-one association to TaskStateChangeAction
@@ -72,11 +72,11 @@ public class TaskPhas implements Serializable {
 	public TaskPhas() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

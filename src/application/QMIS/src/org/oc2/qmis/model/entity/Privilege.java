@@ -18,7 +18,7 @@ public class Privilege implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -50,7 +50,7 @@ public class Privilege implements Serializable {
 
 	//bi-directional many-to-one association to Privilege
 	@ManyToOne
-	@JoinColumn(name="parent_id")
+	@JoinColumn(name="parent_id",insertable=false,updatable=false)
 	private Privilege privilege;
 
 	//bi-directional many-to-one association to Privilege
@@ -64,11 +64,11 @@ public class Privilege implements Serializable {
 	public Privilege() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

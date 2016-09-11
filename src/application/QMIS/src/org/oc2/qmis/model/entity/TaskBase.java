@@ -18,9 +18,9 @@ public class TaskBase implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
-	private int category;
+	private Integer category;
 
 	@Column(name="created_by")
 	private String createdBy;
@@ -72,19 +72,19 @@ public class TaskBase implements Serializable {
 	public TaskBase() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getCategory() {
+	public Integer getCategory() {
 		return this.category;
 	}
 
-	public void setCategory(int category) {
+	public void setCategory(Integer category) {
 		this.category = category;
 	}
 

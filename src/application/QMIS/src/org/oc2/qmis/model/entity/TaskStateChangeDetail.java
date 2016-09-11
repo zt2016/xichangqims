@@ -18,7 +18,7 @@ public class TaskStateChangeDetail implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="baseline_factor")
 	private String baselineFactor;
@@ -57,27 +57,27 @@ public class TaskStateChangeDetail implements Serializable {
 
 	//bi-directional many-to-one association to TaskBaseline
 	@ManyToOne
-	@JoinColumn(name="baseline_id")
+	@JoinColumn(name="baseline_id",insertable=false,updatable=false)
 	private TaskBaseline taskBaseline;
 
 	//bi-directional many-to-one association to TaskStateChangeCategory
 	@ManyToOne
-	@JoinColumn(name="state_change_category")
+	@JoinColumn(name="state_change_category",insertable=false,updatable=false)
 	private TaskStateChangeCategory taskStateChangeCategory;
 
 	//bi-directional many-to-one association to TaskStateChangeImpactLv
 	@ManyToOne
-	@JoinColumn(name="state_change_lv")
+	@JoinColumn(name="state_change_lv",insertable=false,updatable=false)
 	private TaskStateChangeImpactLv taskStateChangeImpactLv;
 
 	public TaskStateChangeDetail() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

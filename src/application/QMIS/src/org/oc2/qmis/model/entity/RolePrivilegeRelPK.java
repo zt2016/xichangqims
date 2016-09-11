@@ -13,23 +13,23 @@ public class RolePrivilegeRelPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="role_id", insertable=false, updatable=false)
-	private int roleId;
+	private Integer roleId;
 
 	@Column(name="privilege_id", insertable=false, updatable=false)
-	private int privilegeId;
+	private Integer privilegeId;
 
 	public RolePrivilegeRelPK() {
 	}
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return this.roleId;
 	}
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
-	public int getPrivilegeId() {
+	public Integer getPrivilegeId() {
 		return this.privilegeId;
 	}
-	public void setPrivilegeId(int privilegeId) {
+	public void setPrivilegeId(Integer privilegeId) {
 		this.privilegeId = privilegeId;
 	}
 

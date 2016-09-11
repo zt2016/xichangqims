@@ -17,7 +17,7 @@ public class IncidentBase implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="close_state")
 	private String closeState;
@@ -42,7 +42,7 @@ public class IncidentBase implements Serializable {
 	@Column(name="open_time")
 	private Date openTime;
 
-	private Object overview;
+	private String overview;
 
 	private String type;
 
@@ -55,47 +55,47 @@ public class IncidentBase implements Serializable {
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="bu")
+	@JoinColumn(name="bu",insertable=false,updatable=false)
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="task_id")
+	@JoinColumn(name="task_id",insertable=false,updatable=false)
 	private TaskBase taskBase;
 
 	//bi-directional many-to-one association to IncidentType
 	@ManyToOne
-	@JoinColumn(name="type_id")
+	@JoinColumn(name="type_id",insertable=false,updatable=false)
 	private IncidentType incidentType;
 
 	//bi-directional many-to-one association to IncidentLv
 	@ManyToOne
-	@JoinColumn(name="lv_id")
+	@JoinColumn(name="lv_id",insertable=false,updatable=false)
 	private IncidentLv incidentLv;
 
 	//bi-directional many-to-one association to IncidentDiagnosisReport
 	@ManyToOne
-	@JoinColumn(name="diagnosis_report_id")
+	@JoinColumn(name="diagnosis_report_id",insertable=false,updatable=false)
 	private IncidentDiagnosisReport incidentDiagnosisReport;
 
 	//bi-directional many-to-one association to IncidentCloseTReport
 	@ManyToOne
-	@JoinColumn(name="close_t_report_id")
+	@JoinColumn(name="close_t_report_id",insertable=false,updatable=false)
 	private IncidentCloseTReport incidentCloseTReport;
 
 	//bi-directional many-to-one association to IncidentCloseMReport
 	@ManyToOne
-	@JoinColumn(name="close_m_report_id")
+	@JoinColumn(name="close_m_report_id",insertable=false,updatable=false)
 	private IncidentCloseMReport incidentCloseMReport;
 
 	public IncidentBase() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -155,11 +155,11 @@ public class IncidentBase implements Serializable {
 		this.openTime = openTime;
 	}
 
-	public Object getOverview() {
+	public String getOverview() {
 		return this.overview;
 	}
 
-	public void setOverview(Object overview) {
+	public void setOverview(String overview) {
 		this.overview = overview;
 	}
 

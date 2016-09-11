@@ -18,8 +18,16 @@
 	    </p:layoutUnit>
 	
 	    <p:layoutUnit position="center" header="CONSOLE">
-	    
-	    
+	    	<h:panelGrid columns="1" width="100%" id="dataGrid">
+				<p:dataTable value="#{taskBaseManagedBean.taskList}" var="taskBase">
+					<p:column headerText="Task Name">
+						<h:outputText value="#{taskBase.name}" />
+					</p:column>
+					<p:column headerText="Category">
+						<h:outputText value="#{taskBase.category}" />
+					</p:column>
+				</p:dataTable>	    
+			</h:panelGrid>
 	    </p:layoutUnit>
 	
 	</p:layout>

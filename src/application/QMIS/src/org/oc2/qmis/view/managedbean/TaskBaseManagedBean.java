@@ -14,7 +14,7 @@ import org.oc2.qmis.model.service.TaskBaseService;
 
 import com.google.common.collect.Lists;
 
-@ManagedBean(name = "taskBaseManagedBean")
+@ManagedBean(name = "taskListManagedBean")
 @SessionScoped
 public class TaskBaseManagedBean {
 	

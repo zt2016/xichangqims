@@ -11,26 +11,104 @@
 <f:view>
 	<p:layout fullPage="true">
 	
-	    <p:layoutUnit position="north" size="100" header="QMIS" resizable="true">
-	    </p:layoutUnit>
+<!-- 	    <p:layoutUnit position="north" size="100" header="QMIS" resizable="true"> -->
+<!-- 	    </p:layoutUnit> -->
 	
-	    <p:layoutUnit position="west" size="300" header="MENU" resizable="true">
+	    <p:layoutUnit position="west" size="250" header="MENU" resizable="true">
+		    <h:form>
+		    	
+		    	<p:menu toggleable="true">
+		    		<p:submenu label="Administration">
+		    			<p:menuitem value="Users" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    			<p:menuitem value="Roles" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    			<p:menuitem value="Positions" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    			<p:menuitem value="Business Units" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    			<p:menuitem value="Business Systems" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    		</p:submenu>
+		    		<p:submenu label="Tasks">
+		    			<p:menuitem value="Tasks" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    		</p:submenu>
+		    		<p:submenu label="Changes">
+		    			<p:menuitem value="Changes" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    		</p:submenu>
+		    		<p:submenu label="Risks">
+		    			<p:menuitem value="Risks" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    		</p:submenu>
+		    		<p:submenu label="Incidents">
+		    			<p:menuitem value="Incidents" actionListener="#{leftPanelManagedBean.placeHolder}" update="messages" icon="ui-icon-star"/>
+		    		</p:submenu>
+		    	</p:menu>
+		    </h:form>
 	    </p:layoutUnit>
 	
 	    <p:layoutUnit position="center" header="CONSOLE">
+	    	<h:panelGrid columns="1" width="100%" id="toolbar">
+	    		<p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />
+	    	</h:panelGrid>
 	    	<h:panelGrid columns="1" width="100%" id="dataGrid">
-				<p:dataTable value="#{taskBaseManagedBean.taskList}" var="taskBase">
+				<p:dataTable value="#{taskBaseManagedBean.taskList}" 
+							 var="taskBase" 
+							 rows="5"
+                         	 paginator="true"
+                         	 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         	 rowsPerPageTemplate="5,10,15">
+					<p:column headerText="ID">
+						<h:outputLink value="http://localhost:8080/qmis/faces/task_details.xhtml?id=#{taskBase.id}" 
+									  title="Click to access task details">
+							<h:outputText value="#{taskBase.id}" />
+						</h:outputLink>
+					</p:column>
 					<p:column headerText="Task Name">
 						<h:outputText value="#{taskBase.name}" />
 					</p:column>
 					<p:column headerText="Category">
 						<h:outputText value="#{taskBase.category}" />
 					</p:column>
-				</p:dataTable>	    
+					<p:column headerText="Start Time">
+						<h:outputText value="#{taskBase.startTime}" />
+					</p:column>
+					<p:column headerText="End Time">
+						<h:outputText value="#{taskBase.endTime}" />
+					</p:column>
+				</p:dataTable>
 			</h:panelGrid>
 	    </p:layoutUnit>
 	
 	</p:layout>
+	
+	<p:dialog header="Create New Task" widgetVar="dlg1" modal="true" height="400" width="600" >
+		<h:form prependId="false">
+		    <h:panelGrid columns="2" columnClasses="label, value" style="margin-bottom:10px" cellpadding="5" id="createNewTask">
+		    	<h:outputLabel value="Name:" />
+		    	<h:inputText value="#{taskBaseManagedBean.taskBase.name}" />
+		    	<h:outputLabel value="Category:" />
+		    	<!-- 
+		    	<h:inputText value="#{taskBaseManagedBean.taskBase.category}" />
+		    	-->
+		    	<p:selectOneListbox id="selectCategory" value="#{taskBaseManagedBean.taskBase.category}">
+		            <f:selectItem itemLabel="Option 1" itemValue="1" />
+		            <f:selectItem itemLabel="Option 2" itemValue="2" />
+		            <f:selectItem itemLabel="Option 3" itemValue="3" />
+		        </p:selectOneListbox> 
+		        <!-- 
+		        <p:selectOneMenu id="selectCategory" value="#{taskBaseManagedBean.taskBase.category}" style="width:125px">
+		            <f:selectItem itemLabel="Select One" itemValue="" />
+		            <f:selectItem itemLabel="1" itemValue="1" />
+		            <f:selectItem itemLabel="2" itemValue="2" />
+		            <f:selectItem itemLabel="3" itemValue="3" />
+		        </p:selectOneMenu> 
+		        -->
+		    	<h:outputLabel value="Start Time:" />
+		    	<p:calendar id="newTaskStartTime" value="#{taskBaseManagedBean.taskBase.startTime}" pattern="MM/dd/yyyy HH:mm:ss" />
+		    	<h:outputLabel value="End Time:" />
+		    	<p:calendar id="newTaskEndTime" value="#{taskBaseManagedBean.taskBase.endTime}" pattern="MM/dd/yyyy HH:mm:ss" />
+		    </h:panelGrid>
+		    <p:commandButton value="Submit" update="messages" action="#{taskBaseManagedBean.createTask}"  ajax="false" icon="ui-icon-check" />
+	    </h:form>
+	</p:dialog>
+	
+	<p:growl id="messages" showDetail="true"/>
+	
 </f:view>
 </h:body>
 </html>

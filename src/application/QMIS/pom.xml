@@ -54,6 +54,17 @@
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
           <failOnMissingWebXml>false</failOnMissingWebXml>
+          <warName>${project.artifactId}</warName>
+          <webResources>
+            <webResource>
+          	  <filtering>true</filtering>
+          	  <directory>src/META-INF</directory>
+          	  <targetPath>WEB-INF/classes/META-INF</targetPath>
+          	  <includes>
+          	    <include>**</include>
+          	  </includes>
+            </webResource>
+          </webResources>
         </configuration>
       </plugin>
     </plugins>
@@ -143,16 +154,18 @@
       <scope>provided</scope>
     </dependency>
     
-<!--     <dependency> -->
-<!--       <groupId>com.sun.faces</groupId> -->
-<!--       <artifactId>jsf-impl</artifactId> -->
-<!--       <version>2.2.13</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>com.sun.faces</groupId> -->
-<!--       <artifactId>jsf-api</artifactId> -->
-<!--       <version>2.2.13</version> -->
-<!--     </dependency> -->
+    <dependency>
+      <groupId>com.sun.faces</groupId>
+      <artifactId>jsf-impl</artifactId>
+      <version>2.2.13</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.faces</groupId>
+      <artifactId>jsf-api</artifactId>
+      <version>2.2.13</version>
+      <scope>provided</scope>
+    </dependency>
     
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
@@ -196,7 +209,14 @@
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>eclipselink</artifactId>
-      <version>2.6.3</version>
+      <!-- <version>2.6.3</version> -->
+      <version>2.5.2</version>
+<!-- 	  <exclusions> -->
+<!-- 	    <exclusion> -->
+<!-- 	      <groupId>org.eclipse.persistence</groupId> -->
+<!--           <artifactId>commonj.sdo</artifactId> -->
+<!-- 	    </exclusion> -->
+<!-- 	  </exclusions> -->
     </dependency>
     
     <dependency>

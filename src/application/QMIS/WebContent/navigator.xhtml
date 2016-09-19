@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+    	<p:menu toggleable="true">
+    		<p:submenu label="Administration">
+    			<p:menuitem value="Users" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    			<p:menuitem value="Roles" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    			<p:menuitem value="Positions" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    			<p:menuitem value="Business Units" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    			<p:menuitem value="Business Systems" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    		</p:submenu>
+    		<p:submenu label="Tasks">
+    			<p:menuitem value="Tasks" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    		</p:submenu>
+    		<p:submenu label="Changes">
+    			<p:menuitem value="Changes" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    		</p:submenu>
+    		<p:submenu label="Risks">
+    			<p:menuitem value="Risks" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    		</p:submenu>
+    		<p:submenu label="Incidents">
+    			<p:menuitem value="Incidents" actionListener="#{leftPanelManagedBean.placeHolder}" update="msg" icon="ui-icon-star"/>
+    		</p:submenu>
+    	</p:menu>
+    </h:form>
+</h:body>
+</html>

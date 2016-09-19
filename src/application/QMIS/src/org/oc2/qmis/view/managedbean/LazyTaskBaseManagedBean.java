@@ -22,6 +22,16 @@ public class LazyTaskBaseManagedBean {
 	private TaskBaseService service;
 	
 	private TaskBase selected;
+	
+	private TaskBase taskBase = new TaskBase();
+
+	public TaskBase getTaskBase() {
+		return taskBase;
+	}
+
+	public void setTaskBase(TaskBase taskBase) {
+		this.taskBase = taskBase;
+	}
 
 	public TaskBaseLazyDataModel getTaskBaseLazyDataModel() {
 		return taskBaseLazyDataModel;
@@ -62,6 +72,18 @@ public class LazyTaskBaseManagedBean {
     public void onRowSelect(SelectEvent event) {
         FacesMessage msg = new FacesMessage("Task Selected", ((TaskBase) event.getObject()).getName());
         FacesContext.getCurrentInstance().addMessage("Select", msg);
+    }
+    
+    public String createTask() {
+        this.service.getTaskBasePagingAndSortingRepositotory().save(this.taskBase);
+        this.taskBase = new TaskBase();
+        addMessage("Created new task.", "Created new task.");
+        return "";
+    }
+    
+    public void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 	
 }

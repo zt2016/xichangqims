@@ -23,9 +23,24 @@
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
   <context-param>
+    <description>The web.xml context parameter facelets.DEVELOPMENT is for the third-party Facelets library. The correct context parameter to activate the Facelets debug page in standard JSF 2.0 is javax.faces.PROJECT_STAGE.</description>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <context-param>
+    <description>The web.xml context parameter facelets.DEVELOPMENT is for the third-party Facelets library. The correct context parameter to activate the Facelets debug page in standard JSF 2.0 is javax.faces.PROJECT_STAGE.</description>
+    <param-name>javax.faces.FACELETS_DEVELOPMENT</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
     <param-value>server</param-value>
+  </context-param>
+  <context-param>
+    <description>The ServletContext init parameter consulted by the runtime to determine if the partial state saving mechanism should be used. If undefined, the runtime must determine the version level of the application.</description>
+    <param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+    <param-value>true</param-value>
   </context-param>
   <context-param>
     <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>

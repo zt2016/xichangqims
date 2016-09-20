@@ -50,7 +50,8 @@ public class Privilege implements Serializable {
 
 	//bi-directional many-to-one association to Privilege
 	@ManyToOne
-	@JoinColumn(name="parent_id",insertable=false,updatable=false)
+	//@JoinColumn(name="parent_id",insertable=false,updatable=false)
+	@JoinColumn(name="parent_id")
 	private Privilege privilege;
 
 	//bi-directional many-to-one association to Privilege

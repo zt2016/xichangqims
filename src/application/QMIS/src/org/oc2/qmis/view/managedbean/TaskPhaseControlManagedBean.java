@@ -3,6 +3,7 @@ package org.oc2.qmis.view.managedbean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -25,8 +26,12 @@ public class TaskPhaseControlManagedBean {
     @ManagedProperty(value = "#{taskPhaseControlService}")
     private TaskPhaseControlService service;
     
+    @PostConstruct
+    public void init() {
+    	this.taskPhaseControlList = Lists.newArrayList(service.getTaskPhaseControlPagingAndSortingRepository().findAll());
+    }
+    
 	public List<TaskPhaseControl> getTaskPhaseControlList() {
-		this.taskPhaseControlList = Lists.newArrayList(service.getTaskPhaseControlPagingAndSortingRepository().findAll());
 		return taskPhaseControlList;
 	}
 

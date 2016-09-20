@@ -57,17 +57,20 @@ public class TaskStateChangeDetail implements Serializable {
 
 	//bi-directional many-to-one association to TaskBaseline
 	@ManyToOne
-	@JoinColumn(name="baseline_id",insertable=false,updatable=false)
+	//@JoinColumn(name="baseline_id",insertable=false,updatable=false)
+	@JoinColumn(name="baseline_id")
 	private TaskBaseline taskBaseline;
 
 	//bi-directional many-to-one association to TaskStateChangeCategory
 	@ManyToOne
-	@JoinColumn(name="state_change_category",insertable=false,updatable=false)
+	//@JoinColumn(name="state_change_category",insertable=false,updatable=false)
+	@JoinColumn(name="state_change_category")
 	private TaskStateChangeCategory taskStateChangeCategory;
 
 	//bi-directional many-to-one association to TaskStateChangeImpactLv
 	@ManyToOne
-	@JoinColumn(name="state_change_lv",insertable=false,updatable=false)
+	//@JoinColumn(name="state_change_lv",insertable=false,updatable=false)
+	@JoinColumn(name="state_change_lv")
 	private TaskStateChangeImpactLv taskStateChangeImpactLv;
 
 	public TaskStateChangeDetail() {

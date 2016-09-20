@@ -41,17 +41,20 @@ public class TaskBaseline implements Serializable {
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="current_task",insertable=false,updatable=false)
+	//@JoinColumn(name="current_task",insertable=false,updatable=false)
+	@JoinColumn(name="current_task")
 	private TaskBase taskBase1;
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="baseline_task",insertable=false,updatable=false)
+	//@JoinColumn(name="baseline_task",insertable=false,updatable=false)
+	@JoinColumn(name="baseline_task")
 	private TaskBase taskBase2;
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="bu",insertable=false,updatable=false)
+	//@JoinColumn(name="bu",insertable=false,updatable=false)
+	@JoinColumn(name="bu")
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to TaskStateChangeDetail

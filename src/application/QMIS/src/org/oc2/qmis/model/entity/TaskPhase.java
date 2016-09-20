@@ -53,7 +53,8 @@ public class TaskPhase implements Serializable {
 
 	//bi-directional many-to-one association to TaskPhase
 	@ManyToOne
-	@JoinColumn(name="previous",insertable=false,updatable=false)
+	//@JoinColumn(name="previous",insertable=false,updatable=false)
+	@JoinColumn(name="previous")
 	private TaskPhase taskPhase;
 
 	//bi-directional many-to-one association to TaskPhase
@@ -62,7 +63,8 @@ public class TaskPhase implements Serializable {
 
 	//bi-directional many-to-one association to WorkSystem
 	@ManyToOne
-	@JoinColumn(name="worksystem",insertable=false,updatable=false)
+	//@JoinColumn(name="worksystem",insertable=false,updatable=false)
+	@JoinColumn(name="worksystem")
 	private WorkSystem workSystem;
 
 	//bi-directional many-to-one association to TaskStateChangeAction

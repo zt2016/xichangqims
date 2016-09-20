@@ -59,7 +59,8 @@ public class User implements Serializable {
 
 	//bi-directional many-to-one association to Position
 	@ManyToOne
-	@JoinColumn(name="position",insertable=false,updatable=false)
+	//@JoinColumn(name="position",insertable=false,updatable=false)
+	@JoinColumn(name="position")
 	private Position positionBean;
 
 	public User() {

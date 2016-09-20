@@ -45,42 +45,50 @@ public class RiskBase implements Serializable {
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="bu",insertable=false,updatable=false)
+	//@JoinColumn(name="bu",insertable=false,updatable=false)
+	@JoinColumn(name="bu")
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="task_id",insertable=false,updatable=false)
+	//@JoinColumn(name="task_id",insertable=false,updatable=false)
+	@JoinColumn(name="task_id")
 	private TaskBase taskBase;
 
 	//bi-directional many-to-one association to RiskType
 	@ManyToOne
-	@JoinColumn(name="type",insertable=false,updatable=false)
+	//@JoinColumn(name="type",insertable=false,updatable=false)
+	@JoinColumn(name="type")
 	private RiskType riskType;
 
 	//bi-directional many-to-one association to RiskImpactLv
 	@ManyToOne
-	@JoinColumn(name="impactlevel",insertable=false,updatable=false)
+	//@JoinColumn(name="impactlevel",insertable=false,updatable=false)
+	@JoinColumn(name="impactlevel")
 	private RiskImpactLv riskImpactLv;
 
 	//bi-directional many-to-one association to RiskSeverityLv
 	@ManyToOne
-	@JoinColumn(name="severitylevel",insertable=false,updatable=false)
+	//@JoinColumn(name="severitylevel",insertable=false,updatable=false)
+	@JoinColumn(name="severitylevel")
 	private RiskSeverityLv riskSeverityLv;
 
 	//bi-directional many-to-one association to RiskCategory
 	@ManyToOne
-	@JoinColumn(name="category",insertable=false,updatable=false)
+	//@JoinColumn(name="category",insertable=false,updatable=false)
+	@JoinColumn(name="category")
 	private RiskCategory riskCategory;
 
 	//bi-directional many-to-one association to RiskProbabilityLv
 	@ManyToOne
-	@JoinColumn(name="probabilitylevel",insertable=false,updatable=false)
+	//@JoinColumn(name="probabilitylevel",insertable=false,updatable=false)
+	@JoinColumn(name="probabilitylevel")
 	private RiskProbabilityLv riskProbabilityLv;
 
 	//bi-directional many-to-one association to RiskLv
 	@ManyToOne
-	@JoinColumn(name="risklevel",insertable=false,updatable=false)
+	//@JoinColumn(name="risklevel",insertable=false,updatable=false)
+	@JoinColumn(name="risklevel")
 	private RiskLv riskLv;
 
 	//bi-directional many-to-one association to RiskCtrlAction

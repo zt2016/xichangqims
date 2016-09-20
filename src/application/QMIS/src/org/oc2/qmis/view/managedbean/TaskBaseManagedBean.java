@@ -3,6 +3,7 @@ package org.oc2.qmis.view.managedbean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -25,8 +26,12 @@ public class TaskBaseManagedBean {
     @ManagedProperty(value = "#{taskBaseService}")
     private TaskBaseService service;
     
+    @PostConstruct
+    public void init() {
+    	this.taskList = Lists.newArrayList(service.getTaskBasePagingAndSortingRepositotory().findAll());
+    }
+    
 	public List<TaskBase> getTaskList() {
-		this.taskList = Lists.newArrayList(service.getTaskBasePagingAndSortingRepositotory().findAll());
 		return taskList;
 	}
 

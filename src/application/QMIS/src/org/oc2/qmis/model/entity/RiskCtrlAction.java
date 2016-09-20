@@ -50,31 +50,37 @@ public class RiskCtrlAction implements Serializable {
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
+	//@JoinColumn(name="task_phase_id")
 	private TaskPhase taskPhas1;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="user_id",insertable=false,updatable=false)
+	//@JoinColumn(name="user_id")
 	private User user1;
 
 	//bi-directional many-to-one association to RiskBase
 	@ManyToOne
 	@JoinColumn(name="risk_base_id",insertable=false,updatable=false)
+	//@JoinColumn(name="risk_base_id")
 	private RiskBase riskBase1;
 
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
+	//@JoinColumn(name="task_phase_id")
 	private TaskPhase taskPhas2;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="user_id",insertable=false,updatable=false)
+	//@JoinColumn(name="user_id")
 	private User user2;
 
 	//bi-directional many-to-one association to RiskBase
 	@ManyToOne
 	@JoinColumn(name="risk_base_id",insertable=false,updatable=false)
+	//@JoinColumn(name="risk_base_id")
 	private RiskBase riskBase2;
 
 	public RiskCtrlAction() {

@@ -13,9 +13,10 @@
 			<h:panelGrid columns="2" columnClasses="label, value"
 				style="margin-bottom:10px" cellpadding="5" id="createNewTaskPhaseControl">
 				<h:outputLabel value="Work System:" rendered="true" />
-				<p:selectOneListbox id="selectCategory2"
+				<p:selectOneListbox id="selectWorkSystem"
 					value="#{lazyTaskPhaseControlManagedBean.taskPhaseControl.workSystem}"
 					var="system"
+					converter="workSystemConverter"
 					filter="true"
 					filterMatchMode="contains"
 					rendered="true">
@@ -31,9 +32,10 @@
 		            </p:column>
 				</p:selectOneListbox>
 				<h:outputLabel value="Task:" rendered="true" />
-				<p:selectOneListbox id="selectCategory3"
+				<p:selectOneListbox id="selectTaskBase"
 					value="#{lazyTaskPhaseControlManagedBean.taskPhaseControl.taskBase}"
 					var="task"
+					converter="taskBaseConverter"
 					filter="true"
 					filterMatchMode="contains"
 					rendered="true">
@@ -49,8 +51,9 @@
 		            </p:column>
 				</p:selectOneListbox>
 				<h:outputLabel value="Task Phase:" rendered="true" />
-				<p:selectOneListbox id="selectCategory4"
+				<p:selectOneListbox id="selectTaskPhase"
 					value="#{lazyTaskPhaseControlManagedBean.taskPhaseControl.taskPhase}"
+					converter="taskPhaseConverter"
 					rendered="true">
 					<f:selectItems value="#{taskPhaseManagedBean.taskPhaseList}"
 						var="taskPhase" itemLabel="#{taskPhase.name}"
@@ -59,11 +62,11 @@
 				</p:selectOneListbox>
 				<h:outputLabel value="Start Time:" />
 				<p:calendar id="newTaskPhaseControlStartTime"
-					value="#{lazyTaskListManagedBean.taskBase.startTime}"
+					value="#{lazyTaskPhaseControlManagedBean.taskPhaseControl.startTime}"
 					pattern="MM/dd/yyyy HH:mm:ss" />
 				<h:outputLabel value="End Time:" />
 				<p:calendar id="newTaskPhaseControlEndTime"
-					value="#{lazyTaskListManagedBean.taskBase.endTime}"
+					value="#{lazyTaskPhaseControlManagedBean.taskPhaseControl.endTime}"
 					pattern="MM/dd/yyyy HH:mm:ss" />
 			</h:panelGrid>
 			<p:commandButton value="Submit" update="messages2"

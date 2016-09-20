@@ -55,37 +55,44 @@ public class IncidentBase implements Serializable {
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="bu",insertable=false,updatable=false)
+	//@JoinColumn(name="bu",insertable=false,updatable=false)
+	@JoinColumn(name="bu")
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="task_id",insertable=false,updatable=false)
+	//@JoinColumn(name="task_id",insertable=false,updatable=false)
+	@JoinColumn(name="task_id")
 	private TaskBase taskBase;
 
 	//bi-directional many-to-one association to IncidentType
 	@ManyToOne
-	@JoinColumn(name="type_id",insertable=false,updatable=false)
+	//@JoinColumn(name="type_id",insertable=false,updatable=false)
+	@JoinColumn(name="type_id")
 	private IncidentType incidentType;
 
 	//bi-directional many-to-one association to IncidentLv
 	@ManyToOne
-	@JoinColumn(name="lv_id",insertable=false,updatable=false)
+	//@JoinColumn(name="lv_id",insertable=false,updatable=false)
+	@JoinColumn(name="lv_id")
 	private IncidentLv incidentLv;
 
 	//bi-directional many-to-one association to IncidentDiagnosisReport
 	@ManyToOne
-	@JoinColumn(name="diagnosis_report_id",insertable=false,updatable=false)
+	//@JoinColumn(name="diagnosis_report_id",insertable=false,updatable=false)
+	@JoinColumn(name="diagnosis_report_id")
 	private IncidentDiagnosisReport incidentDiagnosisReport;
 
 	//bi-directional many-to-one association to IncidentCloseTReport
 	@ManyToOne
-	@JoinColumn(name="close_t_report_id",insertable=false,updatable=false)
+	//@JoinColumn(name="close_t_report_id",insertable=false,updatable=false)
+	@JoinColumn(name="close_t_report_id")
 	private IncidentCloseTReport incidentCloseTReport;
 
 	//bi-directional many-to-one association to IncidentCloseMReport
 	@ManyToOne
-	@JoinColumn(name="close_m_report_id",insertable=false,updatable=false)
+	//@JoinColumn(name="close_m_report_id",insertable=false,updatable=false)
+	@JoinColumn(name="close_m_report_id")
 	private IncidentCloseMReport incidentCloseMReport;
 
 	public IncidentBase() {

@@ -31,13 +31,13 @@
 					</h:outputLink>
 				</p:column>
 				<p:column headerText="Work System">
-					<h:outputText value="#{selected.workSystem}" />
+					<h:outputText value="#{selected.workSystem.name}" />
 				</p:column>
-				<p:column headerText="Task Id">
-					<h:outputText value="#{selected.taskBase.id}" />
+				<p:column headerText="Task">
+					<h:outputText value="#{selected.taskBase.name}" />
 				</p:column>
-				<p:column headerText="Task Phase Id">
-					<h:outputText value="#{selected.taskPhase.id}" />
+				<p:column headerText="Task Phase">
+					<h:outputText value="#{selected.taskPhase.name}" />
 				</p:column>
 				<p:column headerText="Start Time">
 					<h:outputText value="#{selected.startTime}" />

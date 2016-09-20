@@ -59,7 +59,8 @@ public class WorkBusinessUnit implements Serializable {
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="parent_bu",insertable=false,updatable=false)
+	//@JoinColumn(name="parent_bu",insertable=false,updatable=false)
+	@JoinColumn(name="parent_bu")
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to WorkBusinessUnit
@@ -68,7 +69,8 @@ public class WorkBusinessUnit implements Serializable {
 
 	//bi-directional many-to-one association to WorkSystem
 	@ManyToOne
-	@JoinColumn(name="worksystem",insertable=false,updatable=false)
+	//@JoinColumn(name="worksystem",insertable=false,updatable=false)
+	@JoinColumn(name="worksystem")
 	private WorkSystem workSystem;
 
 	public WorkBusinessUnit() {

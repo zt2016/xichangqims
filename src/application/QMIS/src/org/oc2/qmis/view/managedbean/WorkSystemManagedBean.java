@@ -3,6 +3,7 @@ package org.oc2.qmis.view.managedbean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -24,9 +25,13 @@ public class WorkSystemManagedBean {
 	
 	@ManagedProperty(value = "#{workSystemService}")
 	private WorkSystemService service;
+	
+    @PostConstruct
+    public void init() {
+    	this.workSystemList = Lists.newArrayList(this.service.getWorkSystemRepository().findAll());
+    }
 
 	public List<WorkSystem> getWorkSystemList() {
-		this.workSystemList = Lists.newArrayList(this.service.getWorkSystemRepository().findAll());
 		return workSystemList;
 	}
 

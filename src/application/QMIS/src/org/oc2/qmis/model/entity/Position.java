@@ -41,7 +41,8 @@ public class Position implements Serializable {
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@ManyToOne
-	@JoinColumn(name="bu",insertable=false,updatable=false)
+	//@JoinColumn(name="bu",insertable=false,updatable=false)
+	@JoinColumn(name="bu")
 	private WorkBusinessUnit workBusinessUnit;
 
 	//bi-directional many-to-one association to RolePositionRel

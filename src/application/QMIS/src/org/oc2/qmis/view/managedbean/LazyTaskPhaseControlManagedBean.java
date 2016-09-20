@@ -21,6 +21,10 @@ public class LazyTaskPhaseControlManagedBean {
 	@ManagedProperty(value = "#{taskPhaseControlService}")
 	private TaskPhaseControlService service;
 	
+	/**
+	 * 
+	 */
+	
 	private TaskPhaseControl selected;
 	
 	private TaskPhaseControl taskPhaseControl = new TaskPhaseControl();
@@ -70,11 +74,15 @@ public class LazyTaskPhaseControlManagedBean {
     }
     
     public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Task Selected", String.valueOf(((TaskPhaseControl) event.getObject()).getId()));
+        FacesMessage msg = new FacesMessage("Task Phase Control Selected", String.valueOf(((TaskPhaseControl) event.getObject()).getId()));
         FacesContext.getCurrentInstance().addMessage("Select", msg);
     }
     
     public String createTaskPhaseControl() {
+    	System.out.println("Save new task phase control entry:");
+    	System.out.println(this.taskPhaseControl.getWorkSystem().getName());
+    	System.out.println(this.taskPhaseControl.getTaskBase().getName());
+    	System.out.println(this.taskPhaseControl.getTaskPhase().getName());
         this.service.getTaskPhaseControlPagingAndSortingRepository().save(this.taskPhaseControl);
         this.taskPhaseControl = new TaskPhaseControl();
         addMessage("Created new task phase control.", "Created new task phase control.");

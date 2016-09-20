@@ -15,7 +15,7 @@
 				<h:outputLabel value="Name:" />
 				<h:inputText value="#{lazyTaskListManagedBean.taskBase.name}" />
 				<h:outputLabel value="Category:" rendered="true" />
-				<p:selectOneListbox id="selectCategory1"
+				<p:selectOneListbox id="selectCategory"
 					value="#{lazyTaskListManagedBean.taskBase.category}"
 					rendered="true">
 					<f:selectItems value="#{taskCategoryManagedBean.taskCategoryList}"

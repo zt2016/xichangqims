@@ -46,17 +46,23 @@ public class TaskPhaseControl implements Serializable {
 
 	//bi-directional many-to-one association to TaskBase
 	@ManyToOne
-	@JoinColumn(name="task_id",insertable=false,updatable=false)
+	//@JoinColumn(name="task_id",insertable=false,updatable=false)
+	@JoinColumn(name="task_id")
+	//@PrimaryKeyJoinColumn(name="task_id",referencedColumnName="id")
 	private TaskBase taskBase;
 
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
-	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
+	//@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
+	@JoinColumn(name="task_phase_id")
+	//@PrimaryKeyJoinColumn(name="task_phase_id",referencedColumnName="id")
 	private TaskPhase taskPhase;
 
 	//bi-directional many-to-one association to WorkSystem
 	@ManyToOne
-	@JoinColumn(name="worksystem",insertable=false,updatable=false)
+	//@JoinColumn(name="worksystem",insertable=false,updatable=false)
+	@JoinColumn(name="worksystem")
+	//@PrimaryKeyJoinColumn(name="worksystem",referencedColumnName="id")
 	private WorkSystem workSystem;
 
 	public TaskPhaseControl() {

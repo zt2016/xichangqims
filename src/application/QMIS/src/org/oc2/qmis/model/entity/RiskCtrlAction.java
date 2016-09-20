@@ -47,44 +47,25 @@ public class RiskCtrlAction implements Serializable {
 	@Column(name="updated_time")
 	private Date updatedTime;
 
+	/**/ public RiskCtrlAction() {}
+	
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
 	//@JoinColumn(name="task_phase_id")
-	private TaskPhase taskPhas1;
+	private TaskPhase taskPhase;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="user_id",insertable=false,updatable=false)
 	//@JoinColumn(name="user_id")
-	private User user1;
+	private User user;
 
 	//bi-directional many-to-one association to RiskBase
 	@ManyToOne
 	@JoinColumn(name="risk_base_id",insertable=false,updatable=false)
 	//@JoinColumn(name="risk_base_id")
-	private RiskBase riskBase1;
-
-	//bi-directional many-to-one association to TaskPhas
-	@ManyToOne
-	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
-	//@JoinColumn(name="task_phase_id")
-	private TaskPhase taskPhas2;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumn(name="user_id",insertable=false,updatable=false)
-	//@JoinColumn(name="user_id")
-	private User user2;
-
-	//bi-directional many-to-one association to RiskBase
-	@ManyToOne
-	@JoinColumn(name="risk_base_id",insertable=false,updatable=false)
-	//@JoinColumn(name="risk_base_id")
-	private RiskBase riskBase2;
-
-	public RiskCtrlAction() {
-	}
+	private RiskBase riskBase;
 
 	public Integer getId() {
 		return this.id;
@@ -165,53 +146,28 @@ public class RiskCtrlAction implements Serializable {
 	public void setUpdatedTime(Date updatedTime) {
 		this.updatedTime = updatedTime;
 	}
-
-	public TaskPhase getTaskPhas1() {
-		return this.taskPhas1;
+	public TaskPhase getTaskPhase() {
+		return this.taskPhase;
 	}
 
-	public void setTaskPhas1(TaskPhase taskPhas1) {
-		this.taskPhas1 = taskPhas1;
+	public void setTaskPhase(TaskPhase taskPhase) {
+		this.taskPhase = taskPhase;
 	}
 
-	public User getUser1() {
-		return this.user1;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setUser1(User user1) {
-		this.user1 = user1;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public RiskBase getRiskBase1() {
-		return this.riskBase1;
+	public RiskBase getRiskBase() {
+		return this.riskBase;
 	}
 
-	public void setRiskBase1(RiskBase riskBase1) {
-		this.riskBase1 = riskBase1;
-	}
-
-	public TaskPhase getTaskPhas2() {
-		return this.taskPhas2;
-	}
-
-	public void setTaskPhas2(TaskPhase taskPhas2) {
-		this.taskPhas2 = taskPhas2;
-	}
-
-	public User getUser2() {
-		return this.user2;
-	}
-
-	public void setUser2(User user2) {
-		this.user2 = user2;
-	}
-
-	public RiskBase getRiskBase2() {
-		return this.riskBase2;
-	}
-
-	public void setRiskBase2(RiskBase riskBase2) {
-		this.riskBase2 = riskBase2;
+	public void setRiskBase(RiskBase riskBase) {
+		this.riskBase = riskBase;
 	}
 
 }

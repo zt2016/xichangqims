@@ -92,12 +92,12 @@ public class RiskBase implements Serializable {
 	private RiskLv riskLv;
 
 	//bi-directional many-to-one association to RiskCtrlAction
-	@OneToMany(mappedBy="riskBase1")
-	private List<RiskCtrlAction> riskCtrlActions1;
+	@OneToMany(mappedBy="riskBase")
+	private List<RiskCtrlAction> riskCtrlActions;
 
-	//bi-directional many-to-one association to RiskCtrlAction
-	@OneToMany(mappedBy="riskBase2")
-	private List<RiskCtrlAction> riskCtrlActions2;
+	//bi-directional many-to-one association to RiskCheckAction
+	@OneToMany(mappedBy="riskBase")
+	private List<RiskCheckAction> riskCheckActions;
 
 	public RiskBase() {
 	}
@@ -238,48 +238,48 @@ public class RiskBase implements Serializable {
 		this.riskLv = riskLv;
 	}
 
-	public List<RiskCtrlAction> getRiskCtrlActions1() {
-		return this.riskCtrlActions1;
+	public List<RiskCtrlAction> getRiskCtrlActions() {
+		return this.riskCtrlActions;
 	}
 
-	public void setRiskCtrlActions1(List<RiskCtrlAction> riskCtrlActions1) {
-		this.riskCtrlActions1 = riskCtrlActions1;
+	public void setRiskCtrlActions(List<RiskCtrlAction> riskCtrlActions) {
+		this.riskCtrlActions = riskCtrlActions;
 	}
 
-	public RiskCtrlAction addRiskCtrlActions1(RiskCtrlAction riskCtrlActions1) {
-		getRiskCtrlActions1().add(riskCtrlActions1);
-		riskCtrlActions1.setRiskBase1(this);
+	public RiskCtrlAction addRiskCtrlActions(RiskCtrlAction riskCtrlActions) {
+		getRiskCtrlActions().add(riskCtrlActions);
+		riskCtrlActions.setRiskBase(this);
 
-		return riskCtrlActions1;
+		return riskCtrlActions;
 	}
 
-	public RiskCtrlAction removeRiskCtrlActions1(RiskCtrlAction riskCtrlActions1) {
-		getRiskCtrlActions1().remove(riskCtrlActions1);
-		riskCtrlActions1.setRiskBase1(null);
+	public RiskCtrlAction removeRiskCtrlActions(RiskCtrlAction riskCtrlActions) {
+		getRiskCtrlActions().remove(riskCtrlActions);
+		riskCtrlActions.setRiskBase(null);
 
-		return riskCtrlActions1;
+		return riskCtrlActions;
 	}
 
-	public List<RiskCtrlAction> getRiskCtrlActions2() {
-		return this.riskCtrlActions2;
+	public List<RiskCheckAction> getRiskCheckActions() {
+		return this.riskCheckActions;
 	}
 
-	public void setRiskCtrlActions2(List<RiskCtrlAction> riskCtrlActions2) {
-		this.riskCtrlActions2 = riskCtrlActions2;
+	public void setRiskCheckActions(List<RiskCheckAction> riskCheckActions) {
+		this.riskCheckActions = riskCheckActions;
 	}
 
-	public RiskCtrlAction addRiskCtrlActions2(RiskCtrlAction riskCtrlActions2) {
-		getRiskCtrlActions2().add(riskCtrlActions2);
-		riskCtrlActions2.setRiskBase2(this);
+	public RiskCheckAction addRiskCheckActions(RiskCheckAction riskCheckActions) {
+		getRiskCheckActions().add(riskCheckActions);
+		riskCheckActions.setRiskBase(this);
 
-		return riskCtrlActions2;
+		return riskCheckActions;
 	}
 
-	public RiskCtrlAction removeRiskCtrlActions2(RiskCtrlAction riskCtrlActions2) {
-		getRiskCtrlActions2().remove(riskCtrlActions2);
-		riskCtrlActions2.setRiskBase2(null);
+	public RiskCheckAction removeRiskCheckActions(RiskCheckAction riskCheckActions) {
+		getRiskCheckActions().remove(riskCheckActions);
+		riskCheckActions.setRiskBase(null);
 
-		return riskCtrlActions2;
+		return riskCheckActions;
 	}
 
 }

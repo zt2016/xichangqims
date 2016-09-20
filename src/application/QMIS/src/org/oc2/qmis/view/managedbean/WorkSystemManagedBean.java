@@ -1,5 +1,6 @@
 package org.oc2.qmis.view.managedbean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,10 @@ import com.google.common.collect.Lists;
 
 @ManagedBean(name = "workSystemManagedBean")
 @SessionScoped
-public class WorkSystemManagedBean {
-	
+public class WorkSystemManagedBean implements Serializable {
+
+	private static final long serialVersionUID = -3090447989509153557L;
+
 	private List<WorkSystem> workSystemList = new ArrayList<WorkSystem>();
 	
 	private WorkSystem workSystem = new WorkSystem();

@@ -40,12 +40,12 @@ public class TaskPhase implements Serializable {
 	private Date updatedTime;
 
 	//bi-directional many-to-one association to RiskCtrlAction
-	@OneToMany(mappedBy="taskPhas1")
-	private List<RiskCtrlAction> riskCtrlActions1;
+	@OneToMany(mappedBy="taskPhase")
+	private List<RiskCtrlAction> riskCtrlActions;
 
-	//bi-directional many-to-one association to RiskCtrlAction
-	@OneToMany(mappedBy="taskPhas2")
-	private List<RiskCtrlAction> riskCtrlActions2;
+	//bi-directional many-to-one association to RiskCheckAction
+	@OneToMany(mappedBy="taskPhase")
+	private List<RiskCheckAction> riskCheckActions;
 
 	//bi-directional many-to-one association to TaskPhaseControl
 	@OneToMany(mappedBy="taskPhase")
@@ -130,48 +130,48 @@ public class TaskPhase implements Serializable {
 		this.updatedTime = updatedTime;
 	}
 
-	public List<RiskCtrlAction> getRiskCtrlActions1() {
-		return this.riskCtrlActions1;
+	public List<RiskCtrlAction> getRiskCtrlActions() {
+		return this.riskCtrlActions;
 	}
 
-	public void setRiskCtrlActions1(List<RiskCtrlAction> riskCtrlActions1) {
-		this.riskCtrlActions1 = riskCtrlActions1;
+	public void setRiskCtrlActions(List<RiskCtrlAction> riskCtrlActions) {
+		this.riskCtrlActions = riskCtrlActions;
 	}
 
-	public RiskCtrlAction addRiskCtrlActions1(RiskCtrlAction riskCtrlActions1) {
-		getRiskCtrlActions1().add(riskCtrlActions1);
-		riskCtrlActions1.setTaskPhas1(this);
+	public RiskCtrlAction addRiskCtrlActions(RiskCtrlAction riskCtrlActions) {
+		getRiskCtrlActions().add(riskCtrlActions);
+		riskCtrlActions.setTaskPhase(this);
 
-		return riskCtrlActions1;
+		return riskCtrlActions;
 	}
 
-	public RiskCtrlAction removeRiskCtrlActions1(RiskCtrlAction riskCtrlActions1) {
-		getRiskCtrlActions1().remove(riskCtrlActions1);
-		riskCtrlActions1.setTaskPhas1(null);
+	public RiskCtrlAction removeRiskCtrlActions(RiskCtrlAction riskCtrlActions) {
+		getRiskCtrlActions().remove(riskCtrlActions);
+		riskCtrlActions.setTaskPhase(null);
 
-		return riskCtrlActions1;
+		return riskCtrlActions;
 	}
 
-	public List<RiskCtrlAction> getRiskCtrlActions2() {
-		return this.riskCtrlActions2;
+	public List<RiskCheckAction> getRiskCheckActions() {
+		return this.riskCheckActions;
 	}
 
-	public void setRiskCtrlActions2(List<RiskCtrlAction> riskCtrlActions2) {
-		this.riskCtrlActions2 = riskCtrlActions2;
+	public void setRiskCheckActions(List<RiskCheckAction> riskCheckActions) {
+		this.riskCheckActions = riskCheckActions;
 	}
 
-	public RiskCtrlAction addRiskCtrlActions2(RiskCtrlAction riskCtrlActions2) {
-		getRiskCtrlActions2().add(riskCtrlActions2);
-		riskCtrlActions2.setTaskPhas2(this);
+	public RiskCheckAction addRiskCheckActions(RiskCheckAction riskCheckActions) {
+		getRiskCheckActions().add(riskCheckActions);
+		riskCheckActions.setTaskPhase(this);
 
-		return riskCtrlActions2;
+		return riskCheckActions;
 	}
 
-	public RiskCtrlAction removeRiskCtrlActions2(RiskCtrlAction riskCtrlActions2) {
-		getRiskCtrlActions2().remove(riskCtrlActions2);
-		riskCtrlActions2.setTaskPhas2(null);
+	public RiskCheckAction removeRiskCheckActions(RiskCheckAction riskCheckActions) {
+		getRiskCheckActions().remove(riskCheckActions);
+		riskCheckActions.setTaskPhase(null);
 
-		return riskCtrlActions2;
+		return riskCheckActions;
 	}
 
 	public List<TaskPhaseControl> getTaskPhaseControls() {
@@ -196,11 +196,11 @@ public class TaskPhase implements Serializable {
 		return taskPhaseControl;
 	}
 
-	public TaskPhase getTaskPhas() {
+	public TaskPhase getTaskPhase() {
 		return this.taskPhase;
 	}
 
-	public void setTaskPhas(TaskPhase taskPhase) {
+	public void setTaskPhase(TaskPhase taskPhase) {
 		this.taskPhase = taskPhase;
 	}
 
@@ -214,14 +214,14 @@ public class TaskPhase implements Serializable {
 
 	public TaskPhase addTaskPhas(TaskPhase taskPhase) {
 		getTaskPhases().add(taskPhase);
-		taskPhase.setTaskPhas(this);
+		taskPhase.setTaskPhase(this);
 
 		return taskPhase;
 	}
 
 	public TaskPhase removeTaskPhas(TaskPhase taskPhase) {
 		getTaskPhases().remove(taskPhase);
-		taskPhase.setTaskPhas(null);
+		taskPhase.setTaskPhase(null);
 
 		return taskPhase;
 	}

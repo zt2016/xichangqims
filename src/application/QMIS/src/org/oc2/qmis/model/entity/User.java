@@ -46,12 +46,12 @@ public class User implements Serializable {
 	private Date updatedTime;
 
 	//bi-directional many-to-one association to RiskCtrlAction
-	@OneToMany(mappedBy="user1")
-	private List<RiskCtrlAction> riskCtrlActions1;
+	@OneToMany(mappedBy="user")
+	private List<RiskCtrlAction> riskCtrlActions;
 
-	//bi-directional many-to-one association to RiskCtrlAction
-	@OneToMany(mappedBy="user2")
-	private List<RiskCtrlAction> riskCtrlActions2;
+	//bi-directional many-to-one association to RiskCheckAction
+	@OneToMany(mappedBy="user")
+	private List<RiskCheckAction> riskCheckActions;
 
 	//bi-directional many-to-one association to TaskStateChangeAction
 	@OneToMany(mappedBy="user")
@@ -146,48 +146,48 @@ public class User implements Serializable {
 		this.updatedTime = updatedTime;
 	}
 
-	public List<RiskCtrlAction> getRiskCtrlActions1() {
-		return this.riskCtrlActions1;
+	public List<RiskCtrlAction> getRiskCtrlActions() {
+		return this.riskCtrlActions;
 	}
 
-	public void setRiskCtrlActions1(List<RiskCtrlAction> riskCtrlActions1) {
-		this.riskCtrlActions1 = riskCtrlActions1;
+	public void setRiskCtrlActions(List<RiskCtrlAction> riskCtrlActions) {
+		this.riskCtrlActions = riskCtrlActions;
 	}
 
-	public RiskCtrlAction addRiskCtrlActions1(RiskCtrlAction riskCtrlActions1) {
-		getRiskCtrlActions1().add(riskCtrlActions1);
-		riskCtrlActions1.setUser1(this);
+	public RiskCtrlAction addRiskCtrlActions(RiskCtrlAction riskCtrlActions) {
+		getRiskCtrlActions().add(riskCtrlActions);
+		riskCtrlActions.setUser(this);
 
-		return riskCtrlActions1;
+		return riskCtrlActions;
 	}
 
-	public RiskCtrlAction removeRiskCtrlActions1(RiskCtrlAction riskCtrlActions1) {
-		getRiskCtrlActions1().remove(riskCtrlActions1);
-		riskCtrlActions1.setUser1(null);
+	public RiskCtrlAction removeRiskCtrlActions(RiskCtrlAction riskCtrlActions) {
+		getRiskCtrlActions().remove(riskCtrlActions);
+		riskCtrlActions.setUser(null);
 
-		return riskCtrlActions1;
+		return riskCtrlActions;
 	}
 
-	public List<RiskCtrlAction> getRiskCtrlActions2() {
-		return this.riskCtrlActions2;
+	public List<RiskCheckAction> getRiskCheckActions() {
+		return this.riskCheckActions;
 	}
 
-	public void setRiskCtrlActions2(List<RiskCtrlAction> riskCtrlActions2) {
-		this.riskCtrlActions2 = riskCtrlActions2;
+	public void setRiskCheckActions(List<RiskCheckAction> riskCheckActions) {
+		this.riskCheckActions = riskCheckActions;
 	}
 
-	public RiskCtrlAction addRiskCtrlActions2(RiskCtrlAction riskCtrlActions2) {
-		getRiskCtrlActions2().add(riskCtrlActions2);
-		riskCtrlActions2.setUser2(this);
+	public RiskCheckAction addRiskCheckActions(RiskCheckAction riskCheckActions) {
+		getRiskCheckActions().add(riskCheckActions);
+		riskCheckActions.setUser(this);
 
-		return riskCtrlActions2;
+		return riskCheckActions;
 	}
 
-	public RiskCtrlAction removeRiskCtrlActions2(RiskCtrlAction riskCtrlActions2) {
-		getRiskCtrlActions2().remove(riskCtrlActions2);
-		riskCtrlActions2.setUser2(null);
+	public RiskCheckAction removeRiskCheckActions(RiskCheckAction riskCheckActions) {
+		getRiskCheckActions().remove(riskCheckActions);
+		riskCheckActions.setUser(null);
 
-		return riskCtrlActions2;
+		return riskCheckActions;
 	}
 
 	public List<TaskStateChangeAction> getTaskStateChangeActions() {

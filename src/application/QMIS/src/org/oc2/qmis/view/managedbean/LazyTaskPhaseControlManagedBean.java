@@ -1,5 +1,7 @@
 package org.oc2.qmis.view.managedbean;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -13,7 +15,9 @@ import org.primefaces.event.SelectEvent;
 
 @ManagedBean(name = "lazyTaskPhaseControlManagedBean")
 @SessionScoped
-public class LazyTaskPhaseControlManagedBean {
+public class LazyTaskPhaseControlManagedBean implements Serializable {
+
+	private static final long serialVersionUID = 8321952892120434088L;
 
 	@ManagedProperty(value = "#{taskPhaseControlLazyDataModel}")
 	private TaskPhaseControlLazyDataModel taskPhaseControlLazyDataModel;

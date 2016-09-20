@@ -1,5 +1,6 @@
 package org.oc2.qmis.view.managedbean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,10 @@ import com.google.common.collect.Lists;
 
 @ManagedBean(name = "taskPhaseControlManagedBean")
 @SessionScoped
-public class TaskPhaseControlManagedBean {
+public class TaskPhaseControlManagedBean implements Serializable {
 	
+	private static final long serialVersionUID = 1323189082774080695L;
+
 	private TaskPhaseControl taskPhaseControl = new TaskPhaseControl();
 
 	private List<TaskPhaseControl> taskPhaseControlList = new ArrayList<TaskPhaseControl>();

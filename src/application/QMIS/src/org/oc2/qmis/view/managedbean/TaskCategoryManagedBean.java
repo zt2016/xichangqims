@@ -1,5 +1,6 @@
 package org.oc2.qmis.view.managedbean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,10 @@ import com.google.common.collect.Lists;
 
 @ManagedBean(name = "taskCategoryManagedBean")
 @SessionScoped
-public class TaskCategoryManagedBean {
-	
+public class TaskCategoryManagedBean implements Serializable {
+
+	private static final long serialVersionUID = -3255242593541371569L;
+
 	private List<TaskCategory> taskCategoryList = new ArrayList<TaskCategory>();
 	
 	private TaskCategory taskCategory = new TaskCategory();

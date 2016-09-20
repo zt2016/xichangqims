@@ -40,12 +40,6 @@ public class RiskCheckAction implements Serializable {
 
 	private String result;
 
-	@Column(name="risk_base_id")
-	private Integer riskBaseId;
-
-	@Column(name="task_phase_id")
-	private Integer taskPhaseId;
-
 	@Column(name="updated_by")
 	private String updatedBy;
 
@@ -53,11 +47,25 @@ public class RiskCheckAction implements Serializable {
 	@Column(name="updated_time")
 	private Date updatedTime;
 
-	@Column(name="user_id")
-	private Integer userId;
+	/**/ public RiskCheckAction() {}
+	
+	//bi-directional many-to-one association to TaskPhas
+	@ManyToOne
+	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
+	//@JoinColumn(name="task_phase_id")
+	private TaskPhase taskPhase;
 
-	public RiskCheckAction() {
-	}
+	//bi-directional many-to-one association to User
+	@ManyToOne
+	@JoinColumn(name="user_id",insertable=false,updatable=false)
+	//@JoinColumn(name="user_id")
+	private User user;
+
+	//bi-directional many-to-one association to RiskBase
+	@ManyToOne
+	@JoinColumn(name="risk_base_id",insertable=false,updatable=false)
+	//@JoinColumn(name="risk_base_id")
+	private RiskBase riskBase;
 
 	public Integer getId() {
 		return this.id;
@@ -123,22 +131,6 @@ public class RiskCheckAction implements Serializable {
 		this.result = result;
 	}
 
-	public Integer getRiskBaseId() {
-		return this.riskBaseId;
-	}
-
-	public void setRiskBaseId(Integer riskBaseId) {
-		this.riskBaseId = riskBaseId;
-	}
-
-	public Integer getTaskPhaseId() {
-		return this.taskPhaseId;
-	}
-
-	public void setTaskPhaseId(Integer taskPhaseId) {
-		this.taskPhaseId = taskPhaseId;
-	}
-
 	public String getUpdatedBy() {
 		return this.updatedBy;
 	}
@@ -154,13 +146,28 @@ public class RiskCheckAction implements Serializable {
 	public void setUpdatedTime(Date updatedTime) {
 		this.updatedTime = updatedTime;
 	}
-
-	public Integer getUserId() {
-		return this.userId;
+	public TaskPhase getTaskPhase() {
+		return this.taskPhase;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setTaskPhase(TaskPhase taskPhase) {
+		this.taskPhase = taskPhase;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public RiskBase getRiskBase() {
+		return this.riskBase;
+	}
+
+	public void setRiskBase(RiskBase riskBase) {
+		this.riskBase = riskBase;
 	}
 
 }

@@ -1,5 +1,7 @@
 package org.oc2.qmis.view.managedbean;
 
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -12,7 +14,9 @@ import org.primefaces.model.menu.MenuModel;
 
 @ManagedBean(name = "leftPanelManagedBean")
 @SessionScoped
-public class LeftPanelMenuManagedBean {
+public class LeftPanelMenuManagedBean implements Serializable {
+	
+	private static final long serialVersionUID = 8879310198643277779L;
 	
 	private MenuModel model;
 

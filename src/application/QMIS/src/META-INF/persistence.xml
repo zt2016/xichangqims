@@ -26,7 +26,7 @@
 		<class>org.oc2.qmis.model.entity.TaskBase</class>
 		<class>org.oc2.qmis.model.entity.TaskBaseline</class>
 		<class>org.oc2.qmis.model.entity.TaskCategory</class>
-		<class>org.oc2.qmis.model.entity.TaskPhas</class>
+		<class>org.oc2.qmis.model.entity.TaskPhase</class>
 		<class>org.oc2.qmis.model.entity.TaskPhaseControl</class>
 		<class>org.oc2.qmis.model.entity.TaskStateChangeAction</class>
 		<class>org.oc2.qmis.model.entity.TaskStateChangeCategory</class>

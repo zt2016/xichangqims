@@ -50,7 +50,7 @@ public class RiskCtrlAction implements Serializable {
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
-	private TaskPhas taskPhas1;
+	private TaskPhase taskPhas1;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -65,7 +65,7 @@ public class RiskCtrlAction implements Serializable {
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
-	private TaskPhas taskPhas2;
+	private TaskPhase taskPhas2;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -160,11 +160,11 @@ public class RiskCtrlAction implements Serializable {
 		this.updatedTime = updatedTime;
 	}
 
-	public TaskPhas getTaskPhas1() {
+	public TaskPhase getTaskPhas1() {
 		return this.taskPhas1;
 	}
 
-	public void setTaskPhas1(TaskPhas taskPhas1) {
+	public void setTaskPhas1(TaskPhase taskPhas1) {
 		this.taskPhas1 = taskPhas1;
 	}
 
@@ -184,11 +184,11 @@ public class RiskCtrlAction implements Serializable {
 		this.riskBase1 = riskBase1;
 	}
 
-	public TaskPhas getTaskPhas2() {
+	public TaskPhase getTaskPhas2() {
 		return this.taskPhas2;
 	}
 
-	public void setTaskPhas2(TaskPhas taskPhas2) {
+	public void setTaskPhas2(TaskPhase taskPhas2) {
 		this.taskPhas2 = taskPhas2;
 	}
 

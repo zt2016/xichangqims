@@ -45,7 +45,7 @@ public class WorkSystem implements Serializable {
 
 	//bi-directional many-to-one association to TaskPhas
 	@OneToMany(mappedBy="workSystem")
-	private List<TaskPhas> taskPhases;
+	private List<TaskPhase> taskPhases;
 
 	//bi-directional many-to-one association to WorkBusinessUnit
 	@OneToMany(mappedBy="workSystem")
@@ -132,22 +132,22 @@ public class WorkSystem implements Serializable {
 		return taskPhaseControl;
 	}
 
-	public List<TaskPhas> getTaskPhases() {
+	public List<TaskPhase> getTaskPhases() {
 		return this.taskPhases;
 	}
 
-	public void setTaskPhases(List<TaskPhas> taskPhases) {
+	public void setTaskPhases(List<TaskPhase> taskPhases) {
 		this.taskPhases = taskPhases;
 	}
 
-	public TaskPhas addTaskPhas(TaskPhas taskPhas) {
+	public TaskPhase addTaskPhas(TaskPhase taskPhas) {
 		getTaskPhases().add(taskPhas);
 		taskPhas.setWorkSystem(this);
 
 		return taskPhas;
 	}
 
-	public TaskPhas removeTaskPhas(TaskPhas taskPhas) {
+	public TaskPhase removeTaskPhas(TaskPhase taskPhas) {
 		getTaskPhases().remove(taskPhas);
 		taskPhas.setWorkSystem(null);
 

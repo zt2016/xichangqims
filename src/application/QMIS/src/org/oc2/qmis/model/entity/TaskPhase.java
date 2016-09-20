@@ -12,8 +12,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="task_phases")
-@NamedQuery(name="TaskPhas.findAll", query="SELECT t FROM TaskPhas t")
-public class TaskPhas implements Serializable {
+@NamedQuery(name="TaskPhase.findAll", query="SELECT t FROM TaskPhase t")
+public class TaskPhase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -54,11 +54,11 @@ public class TaskPhas implements Serializable {
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="previous",insertable=false,updatable=false)
-	private TaskPhas taskPhas;
+	private TaskPhase taskPhas;
 
 	//bi-directional many-to-one association to TaskPhas
 	@OneToMany(mappedBy="taskPhas")
-	private List<TaskPhas> taskPhases;
+	private List<TaskPhase> taskPhases;
 
 	//bi-directional many-to-one association to WorkSystem
 	@ManyToOne
@@ -69,7 +69,7 @@ public class TaskPhas implements Serializable {
 	@OneToMany(mappedBy="taskPhas")
 	private List<TaskStateChangeAction> taskStateChangeActions;
 
-	public TaskPhas() {
+	public TaskPhase() {
 	}
 
 	public Integer getId() {
@@ -194,30 +194,30 @@ public class TaskPhas implements Serializable {
 		return taskPhaseControl;
 	}
 
-	public TaskPhas getTaskPhas() {
+	public TaskPhase getTaskPhas() {
 		return this.taskPhas;
 	}
 
-	public void setTaskPhas(TaskPhas taskPhas) {
+	public void setTaskPhas(TaskPhase taskPhas) {
 		this.taskPhas = taskPhas;
 	}
 
-	public List<TaskPhas> getTaskPhases() {
+	public List<TaskPhase> getTaskPhases() {
 		return this.taskPhases;
 	}
 
-	public void setTaskPhases(List<TaskPhas> taskPhases) {
+	public void setTaskPhases(List<TaskPhase> taskPhases) {
 		this.taskPhases = taskPhases;
 	}
 
-	public TaskPhas addTaskPhas(TaskPhas taskPhas) {
+	public TaskPhase addTaskPhas(TaskPhase taskPhas) {
 		getTaskPhases().add(taskPhas);
 		taskPhas.setTaskPhas(this);
 
 		return taskPhas;
 	}
 
-	public TaskPhas removeTaskPhas(TaskPhas taskPhas) {
+	public TaskPhase removeTaskPhas(TaskPhase taskPhas) {
 		getTaskPhases().remove(taskPhas);
 		taskPhas.setTaskPhas(null);
 

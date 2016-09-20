@@ -230,16 +230,16 @@ CREATE TABLE
 ;
 
 ALTER TABLE
-    qmis_base.risk_ctrl_actions ADD CONSTRAINT risk_check_actions_fk_1 FOREIGN KEY (task_phase_id) REFERENCES
+    qmis_base.risk_check_actions ADD CONSTRAINT risk_check_actions_fk_1 FOREIGN KEY (task_phase_id) REFERENCES
     qmis_base.task_phases (id)
 ;
 
 ALTER TABLE
-    qmis_base.risk_ctrl_actions ADD CONSTRAINT risk_check_actions_fk_2 FOREIGN KEY (user_id) REFERENCES
+    qmis_base.risk_check_actions ADD CONSTRAINT risk_check_actions_fk_2 FOREIGN KEY (user_id) REFERENCES
     qmis_base.users (id)
 ;
 
 ALTER TABLE
-    qmis_base.risk_ctrl_actions ADD CONSTRAINT risk_check_actions_fk_3 FOREIGN KEY (risk_base_id) REFERENCES
+    qmis_base.risk_check_actions ADD CONSTRAINT risk_check_actions_fk_3 FOREIGN KEY (risk_base_id) REFERENCES
     qmis_base.risk_base (id)
 ;

@@ -52,7 +52,7 @@ public class TaskPhaseControl implements Serializable {
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
-	private TaskPhase taskPhas;
+	private TaskPhase taskPhase;
 
 	//bi-directional many-to-one association to WorkSystem
 	@ManyToOne
@@ -134,12 +134,12 @@ public class TaskPhaseControl implements Serializable {
 		this.taskBase = taskBase;
 	}
 
-	public TaskPhase getTaskPhas() {
-		return this.taskPhas;
+	public TaskPhase getTaskPhase() {
+		return this.taskPhase;
 	}
 
-	public void setTaskPhas(TaskPhase taskPhas) {
-		this.taskPhas = taskPhas;
+	public void setTaskPhase(TaskPhase taskPhase) {
+		this.taskPhase = taskPhase;
 	}
 
 	public WorkSystem getWorkSystem() {

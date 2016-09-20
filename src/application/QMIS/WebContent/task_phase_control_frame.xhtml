@@ -9,32 +9,35 @@
 	
 	<h:form>
 	
-		<h:panelGrid columns="1" width="100%" id="toolbar1">
-			<p:commandButton value="Create New Task" type="button"
-				onclick="PF('dlg1').show();" />
+		<h:panelGrid columns="1" width="100%" id="toolbar2">
+			<p:commandButton value="Create New Task Phase Control" type="button"
+				onclick="PF('dlg2').show();" />
 		</h:panelGrid>
 		
-		<h:panelGrid columns="1" width="100%" id="dataGrid1">
-			<p:dataTable value="#{lazyTaskListManagedBean.taskBaseLazyDataModel}"
+		<h:panelGrid columns="1" width="100%" id="dataGrid2">
+			<p:dataTable value="#{lazyTaskPhaseControlManagedBean.taskPhaseControlLazyDataModel}"
 				var="selected" lazy="true" selectionMode="single"
-				selection="#{lazyTaskListManagedBean.selected}" rows="5"
+				selection="#{lazyTaskPhaseControlManagedBean.selected}" rows="5"
 				paginator="true"
 				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-				rowsPerPageTemplate="5,10,15" sortBy="name">
+				rowsPerPageTemplate="5,10,15" sortBy="id">
 				<p:ajax event="rowSelect"
-					listener="#{lazyTaskListManagedBean.onRowSelect}" update="messages1" />
+					listener="#{lazyTaskPhaseControlManagedBean.onRowSelect}" update="messages2" />
 				<p:column headerText="ID">
 					<h:outputLink
-						value="http://localhost:8080/qmis/faces/task_details.xhtml?id=#{selected.id}"
-						title="Click to access task details">
+						value="http://localhost:8080/qmis/faces/task_phase_control_details.xhtml?id=#{selected.id}"
+						title="Click to access task phase control details">
 						<h:outputText value="#{selected.id}" />
 					</h:outputLink>
 				</p:column>
-				<p:column headerText="Task Name">
-					<h:outputText value="#{selected.name}" />
+				<p:column headerText="Work System">
+					<h:outputText value="#{selected.workSystem}" />
 				</p:column>
-				<p:column headerText="Category">
-					<h:outputText value="#{selected.category}" />
+				<p:column headerText="Task Id">
+					<h:outputText value="#{selected.taskBase.id}" />
+				</p:column>
+				<p:column headerText="Task Phase Id">
+					<h:outputText value="#{selected.taskPhase.id}" />
 				</p:column>
 				<p:column headerText="Start Time">
 					<h:outputText value="#{selected.startTime}" />
@@ -42,9 +45,9 @@
 				<p:column headerText="End Time">
 					<h:outputText value="#{selected.endTime}" />
 				</p:column>
-			</p:dataTable>
+			</p:dataTable>			
 		</h:panelGrid>
-		
+	
 	</h:form>
 
 </ui:composition>

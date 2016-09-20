@@ -48,16 +48,16 @@ public class TaskPhase implements Serializable {
 	private List<RiskCtrlAction> riskCtrlActions2;
 
 	//bi-directional many-to-one association to TaskPhaseControl
-	@OneToMany(mappedBy="taskPhas")
+	@OneToMany(mappedBy="taskPhase")
 	private List<TaskPhaseControl> taskPhaseControls;
 
-	//bi-directional many-to-one association to TaskPhas
+	//bi-directional many-to-one association to TaskPhase
 	@ManyToOne
 	@JoinColumn(name="previous",insertable=false,updatable=false)
-	private TaskPhase taskPhas;
+	private TaskPhase taskPhase;
 
-	//bi-directional many-to-one association to TaskPhas
-	@OneToMany(mappedBy="taskPhas")
+	//bi-directional many-to-one association to TaskPhase
+	@OneToMany(mappedBy="taskPhase")
 	private List<TaskPhase> taskPhases;
 
 	//bi-directional many-to-one association to WorkSystem
@@ -66,7 +66,7 @@ public class TaskPhase implements Serializable {
 	private WorkSystem workSystem;
 
 	//bi-directional many-to-one association to TaskStateChangeAction
-	@OneToMany(mappedBy="taskPhas")
+	@OneToMany(mappedBy="taskPhase")
 	private List<TaskStateChangeAction> taskStateChangeActions;
 
 	public TaskPhase() {
@@ -182,24 +182,24 @@ public class TaskPhase implements Serializable {
 
 	public TaskPhaseControl addTaskPhaseControl(TaskPhaseControl taskPhaseControl) {
 		getTaskPhaseControls().add(taskPhaseControl);
-		taskPhaseControl.setTaskPhas(this);
+		taskPhaseControl.setTaskPhase(this);
 
 		return taskPhaseControl;
 	}
 
 	public TaskPhaseControl removeTaskPhaseControl(TaskPhaseControl taskPhaseControl) {
 		getTaskPhaseControls().remove(taskPhaseControl);
-		taskPhaseControl.setTaskPhas(null);
+		taskPhaseControl.setTaskPhase(null);
 
 		return taskPhaseControl;
 	}
 
 	public TaskPhase getTaskPhas() {
-		return this.taskPhas;
+		return this.taskPhase;
 	}
 
-	public void setTaskPhas(TaskPhase taskPhas) {
-		this.taskPhas = taskPhas;
+	public void setTaskPhas(TaskPhase taskPhase) {
+		this.taskPhase = taskPhase;
 	}
 
 	public List<TaskPhase> getTaskPhases() {
@@ -210,18 +210,18 @@ public class TaskPhase implements Serializable {
 		this.taskPhases = taskPhases;
 	}
 
-	public TaskPhase addTaskPhas(TaskPhase taskPhas) {
-		getTaskPhases().add(taskPhas);
-		taskPhas.setTaskPhas(this);
+	public TaskPhase addTaskPhas(TaskPhase taskPhase) {
+		getTaskPhases().add(taskPhase);
+		taskPhase.setTaskPhas(this);
 
-		return taskPhas;
+		return taskPhase;
 	}
 
-	public TaskPhase removeTaskPhas(TaskPhase taskPhas) {
-		getTaskPhases().remove(taskPhas);
-		taskPhas.setTaskPhas(null);
+	public TaskPhase removeTaskPhas(TaskPhase taskPhase) {
+		getTaskPhases().remove(taskPhase);
+		taskPhase.setTaskPhas(null);
 
-		return taskPhas;
+		return taskPhase;
 	}
 
 	public WorkSystem getWorkSystem() {

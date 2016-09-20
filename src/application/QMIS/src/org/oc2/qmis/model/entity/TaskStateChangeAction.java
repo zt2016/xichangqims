@@ -54,7 +54,7 @@ public class TaskStateChangeAction implements Serializable {
 	//bi-directional many-to-one association to TaskPhas
 	@ManyToOne
 	@JoinColumn(name="task_phase_id",insertable=false,updatable=false)
-	private TaskPhase taskPhas;
+	private TaskPhase taskPhase;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -152,11 +152,11 @@ public class TaskStateChangeAction implements Serializable {
 	}
 
 	public TaskPhase getTaskPhas() {
-		return this.taskPhas;
+		return this.taskPhase;
 	}
 
-	public void setTaskPhas(TaskPhase taskPhas) {
-		this.taskPhas = taskPhas;
+	public void setTaskPhas(TaskPhase taskPhase) {
+		this.taskPhase = taskPhase;
 	}
 
 	public User getUser() {

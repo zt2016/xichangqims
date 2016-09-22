@@ -22,7 +22,7 @@
 				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 				rowsPerPageTemplate="5,10,15" sortBy="id">
 				<p:ajax event="rowSelect"
-					listener="#{lazyTaskPhaseControlManagedBean.onRowSelect}" update="messages2" />
+					listener="#{lazyTaskPhaseControlManagedBean.onRowSelect}" update="msg" />
 				<p:column headerText="ID">
 					<h:outputLink
 						value="http://localhost:8080/qmis/faces/task_phase_control_details.xhtml?id=#{selected.id}"

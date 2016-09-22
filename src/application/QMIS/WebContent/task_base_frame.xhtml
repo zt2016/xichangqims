@@ -22,7 +22,7 @@
 				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 				rowsPerPageTemplate="5,10,15" sortBy="name">
 				<p:ajax event="rowSelect"
-					listener="#{lazyTaskListManagedBean.onRowSelect}" update="messages1" />
+					listener="#{lazyTaskListManagedBean.onRowSelect}" update="msg" />
 				<p:column headerText="ID">
 					<h:outputLink
 						value="http://localhost:8080/qmis/faces/task_details.xhtml?id=#{selected.id}"

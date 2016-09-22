@@ -32,12 +32,10 @@
 					value="#{lazyTaskListManagedBean.taskBase.endTime}"
 					pattern="MM/dd/yyyy HH:mm:ss" />
 			</h:panelGrid>
-			<p:commandButton value="Submit" update="messages1"
+			<p:commandButton value="Submit" update="msg"
 				action="#{lazyTaskListManagedBean.createTask}" ajax="false"
 				icon="ui-icon-check" />
 		</h:form>
 	</p:dialog>
-	
-	<p:growl id="messages1" showDetail="true"/>
 
 </ui:composition>

@@ -69,12 +69,10 @@
 					value="#{lazyTaskPhaseControlManagedBean.taskPhaseControl.endTime}"
 					pattern="MM/dd/yyyy HH:mm:ss" />
 			</h:panelGrid>
-			<p:commandButton value="Submit" update="messages2"
+			<p:commandButton value="Submit" update="msg"
 				action="#{lazyTaskPhaseControlManagedBean.createTaskPhaseControl}" ajax="false"
 				icon="ui-icon-check" />
 		</h:form>
 	</p:dialog>
-	
-	<p:growl id="messages2" showDetail="true"/>
 
 </ui:composition>

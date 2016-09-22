@@ -10,7 +10,7 @@ import javax.faces.context.FacesContext;
 
 import org.oc2.qmis.model.entity.TaskBase;
 import org.oc2.qmis.model.service.TaskBaseLazyDataModel;
-import org.oc2.qmis.model.service.TaskBaseService;
+//import org.oc2.qmis.model.service.TaskBaseService;
 import org.primefaces.event.SelectEvent;
 
 @ManagedBean(name = "lazyTaskListManagedBean")
@@ -22,8 +22,8 @@ public class LazyTaskBaseManagedBean implements Serializable {
 	@ManagedProperty(value = "#{taskBaseLazyDataModel}")
 	private TaskBaseLazyDataModel taskBaseLazyDataModel;
 	
-	@ManagedProperty(value = "#{taskBaseService}")
-	private TaskBaseService service;
+//	@ManagedProperty(value = "#{taskBaseService}")
+//	private TaskBaseService service;
 	
 	private TaskBase selected;
 	
@@ -53,24 +53,26 @@ public class LazyTaskBaseManagedBean implements Serializable {
 		this.selected = selected;
 	}
 	
-    public TaskBaseService getService() {
-		return service;
-	}
+//	public TaskBaseService getService() {
+//		return service;
+//	}
 
-	public void setService(TaskBaseService service) {
-		this.service = service;
-	}
+//	public void setService(TaskBaseService service) {
+//		this.service = service;
+//	}
 
 	public void select() {
         System.out.println("selected: " + selected);
     }
 
     public void delete() {
-        service.getTaskBasePagingAndSortingRepositotory().delete(selected);
+        //service.getTaskBasePagingAndSortingRepositotory().delete(selected);
+    	taskBaseLazyDataModel.getTaskBasePagingAndSortingRepositotory().delete(selected);
     }
 
     public void update() {
-        service.getTaskBasePagingAndSortingRepositotory().save(selected);
+        //service.getTaskBasePagingAndSortingRepositotory().save(selected);
+        taskBaseLazyDataModel.getTaskBasePagingAndSortingRepositotory().save(selected);
     }
     
     public void onRowSelect(SelectEvent event) {
@@ -79,7 +81,8 @@ public class LazyTaskBaseManagedBean implements Serializable {
     }
     
     public String createTask() {
-        this.service.getTaskBasePagingAndSortingRepositotory().save(this.taskBase);
+        //this.service.getTaskBasePagingAndSortingRepositotory().save(this.taskBase);
+    	this.taskBaseLazyDataModel.getTaskBasePagingAndSortingRepositotory().save(this.taskBase);
         this.taskBase = new TaskBase();
         addMessage("Created new task.", "Created new task.");
         return "";

@@ -10,7 +10,7 @@ import javax.faces.context.FacesContext;
 
 import org.oc2.qmis.model.entity.TaskPhaseControl;
 import org.oc2.qmis.model.service.TaskPhaseControlLazyDataModel;
-import org.oc2.qmis.model.service.TaskPhaseControlService;
+//import org.oc2.qmis.model.service.TaskPhaseControlService;
 import org.primefaces.event.SelectEvent;
 
 @ManagedBean(name = "lazyTaskPhaseControlManagedBean")
@@ -22,8 +22,8 @@ public class LazyTaskPhaseControlManagedBean implements Serializable {
 	@ManagedProperty(value = "#{taskPhaseControlLazyDataModel}")
 	private TaskPhaseControlLazyDataModel taskPhaseControlLazyDataModel;
 	
-	@ManagedProperty(value = "#{taskPhaseControlService}")
-	private TaskPhaseControlService service;
+//	@ManagedProperty(value = "#{taskPhaseControlService}")
+//	private TaskPhaseControlService service;
 	
 	/**
 	 * 
@@ -57,24 +57,26 @@ public class LazyTaskPhaseControlManagedBean implements Serializable {
 		this.selected = selected;
 	}
 	
-    public TaskPhaseControlService getService() {
-		return service;
-	}
+//	public TaskPhaseControlService getService() {
+//		return service;
+//	}
 
-	public void setService(TaskPhaseControlService service) {
-		this.service = service;
-	}
+//	public void setService(TaskPhaseControlService service) {
+//		this.service = service;
+//	}
 
 	public void select() {
         System.out.println("selected: " + selected);
     }
 
     public void delete() {
-        service.getTaskPhaseControlPagingAndSortingRepository().delete(selected);
+//        service.getTaskPhaseControlPagingAndSortingRepository().delete(selected);
+    	taskPhaseControlLazyDataModel.getTaskPhaseControlPagingAndSortingRepository().delete(selected);
     }
 
     public void update() {
-        service.getTaskPhaseControlPagingAndSortingRepository().save(selected);
+//        service.getTaskPhaseControlPagingAndSortingRepository().save(selected);
+    	taskPhaseControlLazyDataModel.getTaskPhaseControlPagingAndSortingRepository().save(selected);
     }
     
     public void onRowSelect(SelectEvent event) {
@@ -87,7 +89,8 @@ public class LazyTaskPhaseControlManagedBean implements Serializable {
     	System.out.println(this.taskPhaseControl.getWorkSystem().getName());
     	System.out.println(this.taskPhaseControl.getTaskBase().getName());
     	System.out.println(this.taskPhaseControl.getTaskPhase().getName());
-        this.service.getTaskPhaseControlPagingAndSortingRepository().save(this.taskPhaseControl);
+//        this.service.getTaskPhaseControlPagingAndSortingRepository().save(this.taskPhaseControl);
+        this.taskPhaseControlLazyDataModel.getTaskPhaseControlPagingAndSortingRepository().save(this.taskPhaseControl);
         this.taskPhaseControl = new TaskPhaseControl();
         addMessage("Created new task phase control.", "Created new task phase control.");
         return "";

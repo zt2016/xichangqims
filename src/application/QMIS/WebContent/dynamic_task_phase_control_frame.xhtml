@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+	<h:form>
+	
+		<h:panelGrid columns="1" width="100%" id="toolbar3">
+			<p:commandButton value="Create New Task Phase Control" type="button"
+				onclick="" />
+		</h:panelGrid>
+	
+		<h:panelGrid columns="1" width="100%" id="dataGrid3">
+			<p:dataTable value="#{dynamicLazyTaskPhaseControlManagedBean.dynamicTaskPhaseControlLazyDataModel}"
+				var="selected" lazy="true" selectionMode="single"
+				selection="#{dynamicLazyTaskPhaseControlManagedBean.selected}" rows="5"
+				paginator="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" sortBy="id">
+				<p:ajax event="rowSelect"
+					listener="#{dynamicLazyTaskPhaseControlManagedBean.onRowSelect}" update="msg" />
+				<p:column headerText="ID">
+					<h:outputLink
+						value="http://localhost:8080/qmis/faces/task_phase_control_details.xhtml?id=#{selected.id}"
+						title="Click to access task phase control details">
+						<h:outputText value="#{selected.id}" />
+					</h:outputLink>
+				</p:column>
+				<p:column headerText="Work System">
+					<h:outputText value="#{selected.workSystem.name}" />
+				</p:column>
+				<p:column headerText="Task">
+					<h:outputText value="#{selected.taskBase.name}" />
+				</p:column>
+				<p:column headerText="Task Phase">
+					<h:outputText value="#{selected.taskPhase.name}" />
+				</p:column>
+				<p:column headerText="Start Time">
+					<h:outputText value="#{selected.startTime}" />
+				</p:column>
+				<p:column headerText="End Time">
+					<h:outputText value="#{selected.endTime}" />
+				</p:column>
+			</p:dataTable>			
+		</h:panelGrid>
+	
+	</h:form>
+
+</ui:composition>

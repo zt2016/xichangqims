@@ -13,10 +13,10 @@
 			<h:panelGrid columns="2" columnClasses="label, value"
 				style="margin-bottom:10px" cellpadding="5" id="createNewTask">
 				<h:outputLabel value="Name:" />
-				<h:inputText value="#{lazyTaskListManagedBean.taskBase.name}" />
+				<h:inputText value="#{lazyTaskBaseManagedBean.taskBase.name}" />
 				<h:outputLabel value="Category:" rendered="true" />
 				<p:selectOneListbox id="selectCategory"
-					value="#{lazyTaskListManagedBean.taskBase.category}"
+					value="#{lazyTaskBaseManagedBean.taskBase.category}"
 					rendered="true">
 					<f:selectItems value="#{taskCategoryManagedBean.taskCategoryList}"
 						var="taskCategory" itemLabel="#{taskCategory.name}"
@@ -25,15 +25,15 @@
 				</p:selectOneListbox>
 				<h:outputLabel value="Start Time:" />
 				<p:calendar id="newTaskStartTime"
-					value="#{lazyTaskListManagedBean.taskBase.startTime}"
+					value="#{lazyTaskBaseManagedBean.taskBase.startTime}"
 					pattern="MM/dd/yyyy HH:mm:ss" />
 				<h:outputLabel value="End Time:" />
 				<p:calendar id="newTaskEndTime"
-					value="#{lazyTaskListManagedBean.taskBase.endTime}"
+					value="#{lazyTaskBaseManagedBean.taskBase.endTime}"
 					pattern="MM/dd/yyyy HH:mm:ss" />
 			</h:panelGrid>
 			<p:commandButton value="Submit" update="msg"
-				action="#{lazyTaskListManagedBean.createTask}" ajax="false"
+				action="#{lazyTaskBaseManagedBean.createTask}" ajax="false"
 				icon="ui-icon-check" />
 		</h:form>
 	</p:dialog>

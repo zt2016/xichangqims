@@ -13,7 +13,7 @@ import org.oc2.qmis.model.service.TaskBaseLazyDataModel;
 //import org.oc2.qmis.model.service.TaskBaseService;
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "lazyTaskListManagedBean")
+@ManagedBean(name = "lazyTaskBaseManagedBean")
 @SessionScoped
 public class LazyTaskBaseManagedBean implements Serializable {
 
@@ -22,8 +22,17 @@ public class LazyTaskBaseManagedBean implements Serializable {
 	@ManagedProperty(value = "#{taskBaseLazyDataModel}")
 	private TaskBaseLazyDataModel taskBaseLazyDataModel;
 	
-//	@ManagedProperty(value = "#{taskBaseService}")
-//	private TaskBaseService service;
+	@ManagedProperty(value = "#{dynamicLazyTaskPhaseControlManagedBean}")
+	private DynamicLazyTaskPhaseControlManagedBean dynamicLazyTaskPhaseControlManagedBean;
+	
+	public DynamicLazyTaskPhaseControlManagedBean getDynamicLazyTaskPhaseControlManagedBean() {
+		return dynamicLazyTaskPhaseControlManagedBean;
+	}
+
+	public void setDynamicLazyTaskPhaseControlManagedBean(
+			DynamicLazyTaskPhaseControlManagedBean dynamicLazyTaskPhaseControlManagedBean) {
+		this.dynamicLazyTaskPhaseControlManagedBean = dynamicLazyTaskPhaseControlManagedBean;
+	}
 	
 	private TaskBase selected;
 	
@@ -53,35 +62,25 @@ public class LazyTaskBaseManagedBean implements Serializable {
 		this.selected = selected;
 	}
 	
-//	public TaskBaseService getService() {
-//		return service;
-//	}
-
-//	public void setService(TaskBaseService service) {
-//		this.service = service;
-//	}
-
 	public void select() {
         System.out.println("selected: " + selected);
     }
 
     public void delete() {
-        //service.getTaskBasePagingAndSortingRepositotory().delete(selected);
     	taskBaseLazyDataModel.getTaskBasePagingAndSortingRepositotory().delete(selected);
     }
 
     public void update() {
-        //service.getTaskBasePagingAndSortingRepositotory().save(selected);
         taskBaseLazyDataModel.getTaskBasePagingAndSortingRepositotory().save(selected);
     }
     
     public void onRowSelect(SelectEvent event) {
         FacesMessage msg = new FacesMessage("Task Selected", ((TaskBase) event.getObject()).getName());
         FacesContext.getCurrentInstance().addMessage("Select", msg);
+        this.dynamicLazyTaskPhaseControlManagedBean.getDynamicTaskPhaseControlLazyDataModel().setOwner(selected);
     }
     
     public String createTask() {
-        //this.service.getTaskBasePagingAndSortingRepositotory().save(this.taskBase);
     	this.taskBaseLazyDataModel.getTaskBasePagingAndSortingRepositotory().save(this.taskBase);
         this.taskBase = new TaskBase();
         addMessage("Created new task.", "Created new task.");

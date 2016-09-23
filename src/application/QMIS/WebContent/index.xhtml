@@ -5,17 +5,17 @@
       xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
 </h:head>
-<h:body>
-<ui:debug hotkey="x" rendered="#{initParam['javax.faces.PROJECT_STAGE'] eq 'Development'}"/>
-	<f:view>
+<h:body id="htmlbody">
+<ui:debug hotkey="x" rendered="#{initParam['javax.faces.PROJECT_STAGE'] eq 'Development'}" id="debug"/>
+	<f:view id="fview">
 	
-		<p:layout fullPage="true">
+		<p:layout fullPage="true" id="layout">
 
-		    <p:layoutUnit position="west" size="250" resizable="true">
+		    <p:layoutUnit position="west" size="250" resizable="true" id="layoutUnitWest">
 				<ui:include src="navigator.xhtml"></ui:include>
 		    </p:layoutUnit>
 		    
-		    <p:layoutUnit position="center">
+		    <p:layoutUnit position="center" id="layoutUnitCenter">
 				<ui:include src="task_base_frame.xhtml"></ui:include>
 				<ui:include src="task_phase_control_frame.xhtml"></ui:include>
 		    </p:layoutUnit>

@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
 	
-	<h:form>
+	<h:form id="form1">
 	
 		<h:panelGrid columns="1" width="100%" id="toolbar1">
 			<p:commandButton value="Create New Task" type="button"
@@ -15,14 +15,18 @@
 		</h:panelGrid>
 		
 		<h:panelGrid columns="1" width="100%" id="dataGrid1">
-			<p:dataTable value="#{lazyTaskListManagedBean.taskBaseLazyDataModel}"
+			<p:dataTable value="#{lazyTaskBaseManagedBean.taskBaseLazyDataModel}"
 				var="selected" lazy="true" selectionMode="single"
-				selection="#{lazyTaskListManagedBean.selected}" rows="5"
+				selection="#{lazyTaskBaseManagedBean.selected}" rows="5"
 				paginator="true"
 				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 				rowsPerPageTemplate="5,10,15" sortBy="name">
 				<p:ajax event="rowSelect"
-					listener="#{lazyTaskListManagedBean.onRowSelect}" update="msg" />
+					listener="#{lazyTaskBaseManagedBean.onRowSelect}"/>
+				<p:ajax event="rowSelect"
+					update="@([id$=msg])" />
+				<p:ajax event="rowSelect"
+					update=":#{p:component('ownedTaskPhaseControlDataTable')}" />
 				<p:column headerText="ID">
 					<h:outputLink
 						value="http://localhost:8080/qmis/faces/task_details.xhtml?id=#{selected.id}"
@@ -43,6 +47,41 @@
 					<h:outputText value="#{selected.endTime}" />
 				</p:column>
 			</p:dataTable>
+		</h:panelGrid>
+		
+		<h:panelGrid columns="1" width="100%" id="ownedTaskPhaseControl">
+			<p:dataTable id="ownedTaskPhaseControlDataTable"
+				value="#{dynamicLazyTaskPhaseControlManagedBean.dynamicTaskPhaseControlLazyDataModel}"
+				var="selected" lazy="true" selectionMode="single"
+				selection="#{dynamicLazyTaskPhaseControlManagedBean.selected}" rows="5"
+				paginator="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" sortBy="id">
+				<p:ajax event="rowSelect"
+					listener="#{dynamicLazyTaskPhaseControlManagedBean.onRowSelect}" update="msg" />
+				<p:column headerText="ID">
+					<h:outputLink
+						value="http://localhost:8080/qmis/faces/task_phase_control_details.xhtml?id=#{selected.id}"
+						title="Click to access task phase control details">
+						<h:outputText value="#{selected.id}" />
+					</h:outputLink>
+				</p:column>
+				<p:column headerText="Work System">
+					<h:outputText value="#{selected.workSystem.name}" />
+				</p:column>
+				<p:column headerText="Task">
+					<h:outputText value="#{selected.taskBase.name}" />
+				</p:column>
+				<p:column headerText="Task Phase">
+					<h:outputText value="#{selected.taskPhase.name}" />
+				</p:column>
+				<p:column headerText="Start Time">
+					<h:outputText value="#{selected.startTime}" />
+				</p:column>
+				<p:column headerText="End Time">
+					<h:outputText value="#{selected.endTime}" />
+				</p:column>
+			</p:dataTable>			
 		</h:panelGrid>
 		
 	</h:form>
